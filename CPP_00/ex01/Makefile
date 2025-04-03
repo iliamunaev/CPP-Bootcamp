@@ -3,7 +3,7 @@ TARGET = PhoneBook
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = ____.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Default rule

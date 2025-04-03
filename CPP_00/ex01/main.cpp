@@ -1,76 +1,71 @@
 
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
+// #include "PhoneBook.hpp"
+// #include "Contact.hpp"
 
 
-void PhoneBook::addContact(
+// void displayUsage() {
 
-    ) {
+//     std::cout << "msg";
+// }
 
-        // str prompt = getPrompt();
-        // const std::string firstName, 
-        // const std::string lastName,
-        // const std::string nickName,
-        // const std::string phoneNumber,
-        // const std::string darkSecret
 
-            // do, no empty fields
+// void PhoneBook::addContact(
+
+//     ) {
+
+//         // str prompt = getPrompt();
+//         // const std::string firstName,
+//         // const std::string lastName,
+//         // const std::string nickName,
+//         // const std::string phoneNumber,
+//         // const std::string darkSecret
+
+//             // do, no empty fields
+// }
+
+// void PhoneBook::displayContacts(int index) {
+
+//     // if (!isValidIndex(index))
+//    // std::cout << "Error: msg";
+
+
+//     // else
+//         // displayAll();
+// }
+
+// Contact::Contact(
+//     int index,
+//     const std::string& firstName,
+//     const std::string& lastName,
+//     const std::string& nickName,
+//     const std::string& phoneNumber,
+//     const std::string& darkSecret
+//  ) :
+//     index(index),
+//     firstName(firstName),
+//     lastName(lastName),
+//     nickName(nickName),
+//     phoneNumber(phoneNumber),
+//     darkSecret(darkSecret)
+// {}
+
+#include <iostream>
+#include <string>
+
+std::string getPrompt() {
+    std::string input;
+    std::cout << "Enter command: ";
+    std::getline(std::cin, input);  // Use getline to allow multi-word inputs if needed
+    return input;
 }
-
-void PhoneBook::displayContacts(int index) {
-
-    // if (!isValidIndex(index))
-   // std::cout << "Error: msg";
-
-    
-    // else
-        // displayAll();
-}
-
-Contact::Contact(
-    int index,
-    const std::string& firstName,
-    const std::string& lastName,
-    const std::string& nickName,
-    const std::string& phoneNumber,
-    const std::string& darkSecret
- ) :
-    firstName(firstName),
-    lastName(lastName),
-    nickName(nickName),
-    phoneNumber(phoneNumber),
-    darkSecret(darkSecret)
-{}
-
-void displayUsage() {
-    
-    std::cout << "msg";
-}
-
 
 int main() {
-
-    PhoneBook pbook;
-
     while (true) {
+        std::string prompt = getPrompt();
+        std::cout << "You entered: " << prompt << std::endl;
 
-        // str prompt = getPrompt();
-    
-        if(prompt == ADD) {
-
-            pbook.addContact();
-        }
-        else if (SEARCH) {
-
-            // displayContacs();
-        }
-        else if (EXIT) {
-            // continue
-        }
-        else {
-            // displayUsage();
-        }
+        if (prompt == "EXIT")
+            break;
     }
-    pbook.freeBook();
-    return (0);
+    return 0;
 }

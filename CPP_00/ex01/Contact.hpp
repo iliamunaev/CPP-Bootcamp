@@ -16,19 +16,20 @@ class Contact {
 
     public:
         Contact(
-            int                 index,
-            const std::string&  firstName,
-            const std::string&  lastName,
-            const std::string&  nickName,
-            const std::string&  phoneNumber,
-            const std::string&  darkSecret
+            int index,
+            const std::string& firstName,
+            const std::string& lastName,
+            const std::string& nickName,
+            const std::string& phoneNumber,
+            const std::string& darkSecret
         );
-        void    displayIndex() const;
-        void    displayFirstName() const;
-        void    displayLastName() const;
-        void    displayNickname() const;
 
-        // int     getIndex() const;        
+        int getIndex() const;
+        std::string getFirstName() const;
+        std::string getLastName() const;
+        std::string getNickName() const;
+        std::string getPhoneNumber() const;
+        std::string getDarkSecret() const;
 };
 
 #endif /* CONTACT_H */
