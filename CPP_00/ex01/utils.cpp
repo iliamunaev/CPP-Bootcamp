@@ -10,8 +10,12 @@ std::string promptUser() {
     return input;
 }
 
-
 void exitProgram() {
     std::cout << "Exiting program..." << std::endl;
+}
 
+void displayError() {
+    std::cout << "Usage: type <ADD> for save a new contact, ";
+    std::cout << "<SEARCH> display a specific contact ";
+    std::cout << "or <EXIT> to quit the program" << std::endl;
 }

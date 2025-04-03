@@ -1,44 +1,39 @@
-//PhoneBook.hpp
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <sstream>
 #include "Contact.hpp"
 
 #define ADD "ADD"
 #define EXIT "EXIT"
+#define SEARCH "SEARCH"
+
+#define FIRST_NAME "firstName"
+#define LAST_NAME "lastName"
+#define NICKNAME "nickname"
+#define DARK_SECRET "darkSecret"
+#define INDEX "index"
 #define MAX_CONTACTS 8
-
-
-// class PhoneBook {
-
-//     private:
-//         std::vector<Contact> contacts;
-//         unsigned short num_contacts;
-
-//     public:
-//         PhoneBook();
-//         void addContact();
-//         void displayContacts(int index);
-//         int freePhoneBook();
-//         bool isValidIndex(int index);
-//         int getNewIndex();
-// };
-
 
 class PhoneBook {
 
     private:
+        Contact _contacts[MAX_CONTACTS];
         unsigned short _numberOfContacts;
+        unsigned short _currentIndex;
 
     public:
         PhoneBook();
-        Contact addNewContact();
 
-
-        unsigned short getNewIndex();
+        void addContact(Contact& contact);
+        unsigned short getNewIndex() const;
         void incrementNumberOfContacts();
 
+        void displayRequestedContact(unsigned short index);
+        std::string displayFirstName();
 };
-
 
 #endif /* PHONEBOOK_HPP */

@@ -3,8 +3,12 @@
 
 #include <string>
 #include <iostream>
+#include "PhoneBook.hpp"
 
-std::string	promptUser();
-void		exitProgram();
+void handlePrompt(std::string prompt, PhoneBook& pbook);
+
+std::string promptUser();
+void displayError() ;
+void exitProgram();
 
 #endif /* UTILS_HPP */
