@@ -1,9 +1,8 @@
+//PhoneBook.hpp
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-#include <string>
-#include <iostream>
-// #include "Contact.hpp"
+#include "Contact.hpp"
 
 #define ADD "ADD"
 #define EXIT "EXIT"
@@ -24,6 +23,18 @@
 //         bool isValidIndex(int index);
 //         int getNewIndex();
 // };
+
+
+class PhoneBook {
+
+    private:
+        unsigned short num_contacts;
+
+    public:
+    PhoneBook();
+    unsigned short getNewIndex();
+
+};
 
 
 #endif /* PHONEBOOK_HPP */

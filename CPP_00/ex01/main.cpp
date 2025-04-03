@@ -1,4 +1,4 @@
-
+// main.cpp
 #include "PhoneBook.hpp"
 #include "utils.hpp"
 
@@ -53,12 +53,17 @@
 
 
 int main() {
+
+    PhoneBook pbook;
+
     while (true) {
         std::string prompt = getPrompt();
         std::cout << "You entered: " << prompt << std::endl;
 
         if (prompt == "EXIT")
             break;
+        else if (prompt == "INDEX")
+            std::cout << pbook.getNewIndex() << std::endl;
     }
     return 0;
 }
