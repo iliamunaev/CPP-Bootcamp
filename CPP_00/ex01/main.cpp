@@ -1,5 +1,7 @@
 
-// #include "PhoneBook.hpp"
+#include "PhoneBook.hpp"
+#include "utils.hpp"
+
 // #include "Contact.hpp"
 
 
@@ -49,15 +51,6 @@
 //     darkSecret(darkSecret)
 // {}
 
-#include <iostream>
-#include <string>
-
-std::string getPrompt() {
-    std::string input;
-    std::cout << "Enter command: ";
-    std::getline(std::cin, input);  // Use getline to allow multi-word inputs if needed
-    return input;
-}
 
 int main() {
     while (true) {
