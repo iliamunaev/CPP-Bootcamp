@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
-std::string getPrompt();
+std::string	promptUser();
+void		exitProgram();
 
 #endif /* UTILS_HPP */

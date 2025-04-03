@@ -28,11 +28,15 @@
 class PhoneBook {
 
     private:
-        unsigned short num_contacts;
+        unsigned short _numberOfContacts;
 
     public:
-    PhoneBook();
-    unsigned short getNewIndex();
+        PhoneBook();
+        Contact addNewContact();
+
+
+        unsigned short getNewIndex();
+        void incrementNumberOfContacts();
 
 };
 

@@ -15,7 +15,7 @@
 
 //     ) {
 
-//         // str prompt = getPrompt();
+//         // str command = getcommand();
 //         // const std::string firstName,
 //         // const std::string lastName,
 //         // const std::string nickName,
@@ -57,13 +57,18 @@ int main() {
     PhoneBook pbook;
 
     while (true) {
-        std::string prompt = getPrompt();
-        std::cout << "You entered: " << prompt << std::endl;
+        std::string command = promptUser();
 
-        if (prompt == "EXIT")
+        if (command == "EXIT")
             break;
-        else if (prompt == "INDEX")
+
+        else if (command == ADD) {
+            pbook.addNewContact();
+        }
+
+        else if (command == "INDEX")
             std::cout << pbook.getNewIndex() << std::endl;
     }
+    exitProgram();
     return 0;
 }

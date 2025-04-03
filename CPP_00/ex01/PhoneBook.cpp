@@ -1,8 +1,22 @@
 //PhoneBook.cpp
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : num_contacts(0) {}
+PhoneBook::PhoneBook() :
+	_numberOfContacts(0)
+	{}
 
 unsigned short PhoneBook::getNewIndex() {
-    return num_contacts;
+    return _numberOfContacts;
+}
+
+void PhoneBook::incrementNumberOfContacts() {
+	_numberOfContacts++;
+}
+
+Contact PhoneBook::addNewContact() {
+	Contact newContact;
+	newContact.setIndex(getNewIndex());
+	incrementNumberOfContacts();
+	std::cout << "New contact successfully added!" << std::endl;
+	return newContact;
 }

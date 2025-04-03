@@ -1,9 +1,17 @@
 // utils.cpp
 #include "utils.hpp"
 
-std::string getPrompt() {
+std::string promptUser() {
     std::string input;
     std::cout << "Enter command: ";
-    std::getline(std::cin, input);  // Use getline to allow multi-word inputs if needed
+    std::getline(std::cin, input);
+
+    std::cout << "You entered: " << input << std::endl;
     return input;
+}
+
+
+void exitProgram() {
+    std::cout << "Exiting program..." << std::endl;
+
 }
