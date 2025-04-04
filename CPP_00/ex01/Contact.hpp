@@ -11,6 +11,7 @@ class Contact {
         std::string _firstName;
         std::string _lastName;
         std::string _nickname;
+        std::string _phoneNumber;
         std::string _darkSecret;
 
     public:
@@ -19,12 +20,14 @@ class Contact {
         void setFirstName(const std::string& firstName);
         void setLastName(const std::string& lastName);
         void setNickname(const std::string& nickname);
+        void setPhoneNumber(const std::string& phoneNumber);
         void setDarkSecret(const std::string& darkSecret);
 
         unsigned short getIndex() const;
         std::string getFirstName() const;
         std::string getLastName() const;
         std::string getNickname() const;
+        std::string getPhoneNumber() const;
 };
 
 #endif /* CONTACT_HPP */

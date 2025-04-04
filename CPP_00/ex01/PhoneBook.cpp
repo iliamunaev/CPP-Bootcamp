@@ -35,5 +35,6 @@ void PhoneBook::displayRequestedContact(unsigned short index) {
     std::cout << "First Name: " << contact.getFirstName() << std::endl;
     std::cout << "Last Name: " << contact.getLastName() << std::endl;
     std::cout << "Nickname: " << contact.getNickname() << std::endl;
+    std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;
 
 }

@@ -14,6 +14,7 @@
 #define FIRST_NAME "firstName"
 #define LAST_NAME "lastName"
 #define NICKNAME "nickname"
+#define PHONE_NUMBER "phoneNumber"
 #define DARK_SECRET "darkSecret"
 #define INDEX "index"
 #define MAX_CONTACTS 8

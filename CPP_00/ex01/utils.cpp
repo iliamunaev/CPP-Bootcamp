@@ -3,10 +3,11 @@
 
 std::string promptUser() {
     std::string input;
-    std::cout << "Enter command: ";
+    std::cout << "Enter command: 'ADD', 'SEARCH' or 'EXIT':" << std::endl;
+    std::cout << "> ";
+
     std::getline(std::cin, input);
 
-    std::cout << "You entered: " << input << std::endl;
     return input;
 }
 
@@ -15,7 +16,8 @@ void exitProgram() {
 }
 
 void displayError() {
-    std::cout << "Usage: type <ADD> for save a new contact, ";
-    std::cout << "<SEARCH> display a specific contact ";
-    std::cout << "or <EXIT> to quit the program" << std::endl;
+    std::cout << "Usage, type:" << std::endl; 
+    std::cout << "      'ADD'    : save a new contact" << std::endl;
+    std::cout << "      'SEARCH' : display a specific contact" << std::endl;
+    std::cout << "      'EXIT'   : quit the program" << std::endl;
 }

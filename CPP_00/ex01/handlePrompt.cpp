@@ -15,9 +15,9 @@ std::string handleDataFromUser(
         return index;
     }
     else if (command == ADD) {
-        std::string firstName, lastName, nickname, darkSecret;
+        std::string firstName, lastName, nickname, phoneNumber, darkSecret;
 
-        stream >> firstName >> lastName >> nickname >> darkSecret;
+        stream >> firstName >> lastName >> nickname >> phoneNumber >> darkSecret;
 
         if (request == FIRST_NAME)
             return firstName;
@@ -25,6 +25,8 @@ std::string handleDataFromUser(
             return lastName;
         else if (request == NICKNAME)
             return nickname;
+        else if (request == PHONE_NUMBER)
+            return phoneNumber;
         else if (request == DARK_SECRET)
             return darkSecret;
         else
@@ -39,10 +41,13 @@ std::string requestDataFromUser(std::string command)
 {
     std::string data;
 
-    if (command == SEARCH)
+    if (command == SEARCH) {
         std::cout << "Enter index from '0' to '7': ";
-    else
-        std::cout << "Enter first name, last name, nickname, phone number, darkest secret.: ";
+        std::cout << "> ";    }
+    else {
+        std::cout << "Enter 'First name', 'Last name', 'nickname', 'phone number', 'darkest secret': " << std::endl;
+        std::cout << "> ";
+    }
     std::getline(std::cin, data);
 
     return data;
@@ -54,12 +59,14 @@ void addNewContact(PhoneBook& pbook) {
     std::string firstName = handleDataFromUser(data, FIRST_NAME, ADD);
     std::string lastName = handleDataFromUser(data, LAST_NAME, ADD);
     std::string nickname = handleDataFromUser(data, NICKNAME, ADD);
+    std::string phoneNumber = handleDataFromUser(data, PHONE_NUMBER, ADD);
     std::string darkSecret = handleDataFromUser(data, DARK_SECRET, ADD);
 
     Contact newContact;
     newContact.setFirstName(firstName);
     newContact.setLastName(lastName);
     newContact.setNickname(nickname);
+    newContact.setPhoneNumber(phoneNumber);
     newContact.setDarkSecret(darkSecret);
 
     pbook.addContact(newContact);
