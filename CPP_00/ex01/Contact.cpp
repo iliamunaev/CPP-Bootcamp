@@ -1,59 +1,38 @@
-// Contact.cpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 15:50:11 by imunaev-          #+#    #+#             */
+/*   Updated: 2025/04/04 15:50:13 by imunaev-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
-#include "PhoneBook.hpp"
 
-Contact::Contact() :
-    _index(0),
-    _firstName(""),
-    _lastName(""),
-    _nickname(""),
-    _phoneNumber(""),
-    _darkSecret("")
-{}
+Contact::Contact() : _index(0) {}
 
-// setup functions
+// Generic Setter
+void Contact::setData(const std::string& data, int index) {
+    if (index >= 0 && index < 5) {
+        _userData[index] = data;
+    }
+}
+
+// Generic Getter
+std::string Contact::getData(int index) const {
+    if (index >= 0 && index < 5) {
+        return _userData[index];
+    }
+    return "";
+}
+
 void Contact::setIndex(unsigned short index) {
     _index = index;
 }
 
-void Contact::setFirstName(const std::string& firstName) {
-    _firstName = firstName;
-}
-
-void Contact::setLastName(const std::string& lastName) {
-    _lastName = lastName;
-}
-
-void Contact::setNickname(const std::string& nickname) {
-    _nickname = nickname;
-}
-
-void Contact::setPhoneNumber(const std::string& phoneNumber) {
-    _phoneNumber = phoneNumber;
-}
-
-void Contact::setDarkSecret(const std::string& darkSecret) {
-    _darkSecret = darkSecret;
-}
-
-// info providers
 unsigned short Contact::getIndex() const {
     return _index;
 }
-
-std::string Contact::getFirstName() const {
-    return _firstName;
-}
-
-std::string Contact::getLastName() const {
-    return _lastName;
-}
-
-std::string Contact::getNickname() const {
-    return _nickname;
-}
-
-std::string Contact::getPhoneNumber() const {
-    return _phoneNumber;
-}
-

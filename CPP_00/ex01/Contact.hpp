@@ -1,33 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 15:50:17 by imunaev-          #+#    #+#             */
+/*   Updated: 2025/04/04 15:50:18 by imunaev-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
 #include <string>
-#include <iostream>
+
 
 class Contact {
 
     private:
         unsigned short _index;
-        std::string _firstName;
-        std::string _lastName;
-        std::string _nickname;
-        std::string _phoneNumber;
-        std::string _darkSecret;
+        std::string _userData[5];
 
     public:
         Contact();
-        void setIndex(unsigned short index);
-        void setFirstName(const std::string& firstName);
-        void setLastName(const std::string& lastName);
-        void setNickname(const std::string& nickname);
-        void setPhoneNumber(const std::string& phoneNumber);
-        void setDarkSecret(const std::string& darkSecret);
 
+        void setData(const std::string& data, int index);
+
+        std::string getData(int index) const;
+
+        void setIndex(unsigned short index);
         unsigned short getIndex() const;
-        std::string getFirstName() const;
-        std::string getLastName() const;
-        std::string getNickname() const;
-        std::string getPhoneNumber() const;
 };
 
 #endif /* CONTACT_HPP */

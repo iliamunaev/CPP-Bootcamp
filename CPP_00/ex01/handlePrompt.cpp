@@ -1,84 +1,89 @@
-// handlePrompt.cpp
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handlePrompt.cpp                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 15:50:29 by imunaev-          #+#    #+#             */
+/*   Updated: 2025/04/04 15:50:30 by imunaev-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include "utils.hpp"
 
-std::string handleDataFromUser(
-    const std::string &data,
-    std::string request,
-    std::string command) {
+int stringToInt(const std::string& str)
+{
+    std::stringstream ss(str);
+    int result = 0;
 
-    std::istringstream stream(data);
-
-    if (command == SEARCH) {
-        std::string index;
-        stream >> index;
-        return index;
+    ss >> result;
+    if (ss.fail() || !ss.eof()) {
+        return -1;
     }
-    else if (command == ADD) {
-        std::string firstName, lastName, nickname, phoneNumber, darkSecret;
 
-        stream >> firstName >> lastName >> nickname >> phoneNumber >> darkSecret;
-
-        if (request == FIRST_NAME)
-            return firstName;
-        else if (request == LAST_NAME)
-            return lastName;
-        else if (request == NICKNAME)
-            return nickname;
-        else if (request == PHONE_NUMBER)
-            return phoneNumber;
-        else if (request == DARK_SECRET)
-            return darkSecret;
-        else
-            return "";
-    }
-    else {
-        return "";
-    }
+    return result;
 }
 
-std::string requestDataFromUser(std::string command)
+void requestDataFromUser(const std::string &command, Contact &newContact)
 {
     std::string data;
 
     if (command == SEARCH) {
-        std::cout << "Enter index from '0' to '7': ";
-        std::cout << "> ";    }
-    else {
-        std::cout << "Enter 'First name', 'Last name', 'nickname', 'phone number', 'darkest secret': " << std::endl;
+        std::cout << "Enter an index from '0' to '7': ";
         std::cout << "> ";
-    }
-    std::getline(std::cin, data);
+        std::getline(std::cin, data);
 
-    return data;
+        int index = stringToInt(data);
+        if (index < 0 || index > 7) {
+            std::cerr << "Error: Invalid index. Please enter a valid index (0-7)." << std::endl;
+            return;
+        }
+        newContact.setIndex(static_cast<unsigned short>(index));
+    }
+    else if (command == ADD) {
+        const std::string prompts[5] = {
+            "First name", "Last name", "Nickname", "Phone number", "Darkest secret"
+        };
+
+        for (int i = 0; i < 5; i++) {
+            std::cout << "> " << prompts[i] << ": ";
+            std::getline(std::cin, data);
+
+            if (data.empty()) {
+                // std::cerr << "Error: Field cannot be empty. Please enter valid data." << std::endl;
+                // i++;
+                continue;
+            }
+
+            newContact.setData(data, i);
+        }
+    }
 }
 
 void addNewContact(PhoneBook& pbook) {
-    std::string data = requestDataFromUser(ADD);
-
-    std::string firstName = handleDataFromUser(data, FIRST_NAME, ADD);
-    std::string lastName = handleDataFromUser(data, LAST_NAME, ADD);
-    std::string nickname = handleDataFromUser(data, NICKNAME, ADD);
-    std::string phoneNumber = handleDataFromUser(data, PHONE_NUMBER, ADD);
-    std::string darkSecret = handleDataFromUser(data, DARK_SECRET, ADD);
-
     Contact newContact;
-    newContact.setFirstName(firstName);
-    newContact.setLastName(lastName);
-    newContact.setNickname(nickname);
-    newContact.setPhoneNumber(phoneNumber);
-    newContact.setDarkSecret(darkSecret);
 
+    std::cout << "Provide First name, Second name, nickname, Phone number, and Darck Secret" << std::endl;
+
+    requestDataFromUser(ADD, newContact);
     pbook.addContact(newContact);
 }
 
 void displayContact(PhoneBook& pbook) {
-    std::string data = requestDataFromUser(SEARCH);
+    std::string data;
+    std::cout << "Enter an index from '0' to '7': ";
+    std::getline(std::cin, data);
 
-    std::string indexStr = handleDataFromUser(data, INDEX, SEARCH);
-    unsigned short index = static_cast<unsigned short>(std::atoi(indexStr.c_str()));
+    int index = stringToInt(data);
+    if (index < 0 || index > 7) {
+        std::cerr << "Error: Invalid index. Please enter a valid index (0-7)." << std::endl;
+        return;
+    }
 
-    pbook.displayRequestedContact(index);
+    pbook.displayRequestedContact(static_cast<unsigned short>(index));
 }
 
 void handlePrompt(std::string prompt, PhoneBook& pbook) {
@@ -89,6 +94,6 @@ void handlePrompt(std::string prompt, PhoneBook& pbook) {
         displayContact(pbook);
     }
     else {
-       displayError();
+       std::cerr << "Error: I Invalid command. Use ADD, SEARCH, or EXIT." << std::endl;
     }
 }
