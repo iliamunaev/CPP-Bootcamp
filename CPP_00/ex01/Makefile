@@ -6,7 +6,7 @@
 #    By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/04 15:50:47 by imunaev-          #+#    #+#              #
-#    Updated: 2025/04/04 15:50:48 by imunaev-         ###   ########.fr        #
+#    Updated: 2025/04/07 10:27:50 by imunaev-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS =	main.cpp \
 		utils.cpp \
 		PhoneBook.cpp \
-		Contact.cpp \
-		handlePrompt.cpp
+		Contact.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

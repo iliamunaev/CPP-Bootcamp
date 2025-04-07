@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:17 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/04 15:50:18 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:18:59 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 #define CONTACT_HPP
 
 #include <string>
+#include <iomanip>
+#include <iostream>
 
 
 class Contact {
-
     private:
-        unsigned short _index;
-        std::string _userData[5];
+        std::string firstName;
+        std::string lastName;
+        std::string nickname;
+        std::string phoneNumber;
+        std::string darkestSecret;
 
     public:
-        Contact();
-
-        void setData(const std::string& data, int index);
-
-        std::string getData(int index) const;
-
-        void setIndex(unsigned short index);
-        unsigned short getIndex() const;
+        void setContact();
+        void displaySummary(int index) const;
+        void displayDetails() const;
+        bool isEmpty() const;
 };
 
-#endif /* CONTACT_HPP */
+#endif

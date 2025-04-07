@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:40 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/04 15:50:41 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:27:19 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 #include "utils.hpp"
 
 int main() {
-    PhoneBook pbook;
+    PhoneBook pBook;
 
     while (true) {
         std::string prompt = promptUser();
 
         if (prompt == "EXIT")
             break;
+        else if (prompt == "ADD")
+            pBook.addContact();
+        else if (prompt == "SEARCH")
+            pBook.searchContact();
         else
-            handlePrompt(prompt, pbook);
+            invalidInpit();
     }
-    exitProgram();
+    endProgram();
 
     return 0;
 }

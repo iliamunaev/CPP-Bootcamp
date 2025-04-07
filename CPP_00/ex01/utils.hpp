@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:51:11 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/04 15:51:12 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:52:20 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
 #include "PhoneBook.hpp"
 
-void handlePrompt(std::string prompt, PhoneBook& pbook);
-
 std::string promptUser();
-void displayError() ;
-void exitProgram();
+void endProgram();
+void invalidInpit();
+std::string getUserData(const std::string &field);
+bool isNumber(const std::string &str);
 
 #endif /* UTILS_HPP */
