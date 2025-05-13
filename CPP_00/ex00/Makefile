@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: Ilia Munaev <ilyamunaev@gmail.com>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/05/13 09:14:08 by Ilia Munaev       #+#    #+#              #
+#    Updated: 2025/05/13 09:35:55 by Ilia Munaev      ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 TARGET = megaphone
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = megaphone.cpp
-OBJS = $(SRCS:.cpp=.o)
+OBJS = megaphone.o
 
 # Default rule
 all: $(TARGET)
@@ -15,7 +27,7 @@ $(TARGET): $(OBJS)
 
 # Compiling the source files into object files
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $(SRCS) -o $(OBJS)
 
 # Clean rule to remove generated files
 clean:

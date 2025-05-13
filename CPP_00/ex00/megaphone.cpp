@@ -1,34 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Ilia Munaev <ilyamunaev@gmail.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/13 09:14:13 by Ilia Munaev       #+#    #+#             */
+/*   Updated: 2025/05/13 11:28:04 by Ilia Munaev      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
-#include <cctype>
 
-class Megaphone {
-    public:
-        void yell(int argc, char **argv) const;
-    private:
-        void print_uppercase(const char *str) const;
-};
-
-void Megaphone::print_uppercase(const char *str) const {
-    for (size_t i = 0; str[i]; i++)
-        std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(str[i])));
-}
-
-void Megaphone::yell(int argc, char **argv) const {
-    if (argc == 1) {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-        return;
-
-    } for (int i = 1; i < argc; i++) {
-        print_uppercase(argv[i]);
-        if (i < argc - 1)
-            std::cout << " ";
-    }
-    std::cout << std::endl;
+std::string get_word(const std::string& word) {
+    std::string uppercase_word;
+    for (size_t i = 0; i < word.length(); ++i)
+        uppercase_word += static_cast<char>(std::toupper(static_cast<unsigned char>(word[i])));
+    return uppercase_word;
 }
 
 int main(int argc, char **argv) {
-    Megaphone megaphone;
-
-    megaphone.yell(argc, argv);
+    if (argc == 1)
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+    else {
+        for (int i = 1; i < argc; ++i) {
+            std::string word = get_word(argv[i]);
+            std::cout << word;
+        }
+    }
+    std::cout << std:: endl;
     return 0;
 }
