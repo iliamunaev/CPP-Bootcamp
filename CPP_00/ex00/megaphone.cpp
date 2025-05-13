@@ -6,11 +6,12 @@
 /*   By: Ilia Munaev <ilyamunaev@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 09:14:13 by Ilia Munaev       #+#    #+#             */
-/*   Updated: 2025/05/13 11:28:04 by Ilia Munaev      ###   ########.fr       */
+/*   Updated: 2025/05/13 12:39:57 by Ilia Munaev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
 std::string get_word(const std::string& word) {
     std::string uppercase_word;
