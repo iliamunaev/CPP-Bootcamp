@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: Ilia Munaev <ilyamunaev@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:58 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/07 13:40:31 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/05/14 13:39:53 by Ilia Munaev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@
  * a fixed size of MAX_NUM_CONTACTS (8).
  */
 class PhoneBook {
-    private:
-        Contact contacts[MAX_NUM_CONTACTS];
-        int		totalContacts;
-        int		oldestContact;
+  private:
+    Contact contacts[MAX_NUM_CONTACTS];
+    int		totalContacts;
+    int		oldestContact;
 
-    public:
-        PhoneBook();
-        void addContact();
-        void searchContact();
+  public:
+    PhoneBook();
+    void addContact();
+    void searchContact();
 };
 
 #endif
