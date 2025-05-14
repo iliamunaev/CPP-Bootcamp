@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: Ilia Munaev <ilyamunaev@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:11 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/07 13:32:26 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:09:01 by Ilia Munaev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
  * darkest secret. Stores the input in the respective private member variables.
  */
 void Contact::setContact() {
-	firstName = getUserData("First Name");
-	lastName = getUserData("Last Name");
-	nickname = getUserData("Nickname");
-	phoneNumber = getUserData("Phone Number");
-	darkestSecret = getUserData("Darkest Secret");
+	_firstName = getUserData("First Name");
+	_lastName = getUserData("Last Name");
+	_nickname = getUserData("Nickname");
+	_phoneNumber = getUserData("Phone Number");
+	_darkestSecret = getUserData("Darkest Secret");
 }
 
 /**
@@ -56,9 +56,9 @@ static std::string truncate(const std::string &str) {
  */
 void Contact::displaySummary(int index) const {
 	std::cout << "|" << std::setw(10) << index
-			  << "|" << std::setw(10) << truncate(firstName)
-			  << "|" << std::setw(10) << truncate(lastName)
-			  << "|" << std::setw(10) << truncate(nickname)
+			  << "|" << std::setw(10) << truncate(_firstName)
+			  << "|" << std::setw(10) << truncate(_lastName)
+			  << "|" << std::setw(10) << truncate(_nickname)
 			  << "|\n";
 }
 
@@ -73,11 +73,11 @@ void Contact::displaySummary(int index) const {
  * - Darkest Secret
  */
 void Contact::displayDetails() const {
-	std::cout << "First Name....: " << firstName << "\n"
-			  << "Last Name.....: " << lastName << "\n"
-			  << "Nickname......: " << nickname << "\n"
-			  << "Phone Number..: " << phoneNumber << "\n"
-			  << "Darkest Secret: " << darkestSecret << "\n";
+	std::cout << "First Name....: " << _firstName << "\n"
+			  << "Last Name.....: " << _lastName << "\n"
+			  << "Nickname......: " << _nickname << "\n"
+			  << "Phone Number..: " << _phoneNumber << "\n"
+			  << "Darkest Secret: " << _darkestSecret << "\n";
 }
 
 /**
@@ -87,5 +87,5 @@ void Contact::displayDetails() const {
  * @return false If the contact's first name is not empty.
  */
 bool Contact::isEmpty() const {
-	return firstName.empty();
+	return _firstName.empty();
 }

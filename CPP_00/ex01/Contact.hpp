@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: Ilia Munaev <ilyamunaev@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:17 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/07 13:41:21 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:08:16 by Ilia Munaev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@
  */
 class Contact {
     private:
-        std::string firstName;
-        std::string lastName;
-        std::string nickname;
-        std::string phoneNumber;
-        std::string darkestSecret;
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickname;
+        std::string _phoneNumber;
+        std::string _darkestSecret;
 
     public:
         void setContact();
