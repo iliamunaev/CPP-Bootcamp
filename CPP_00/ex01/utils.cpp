@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:51:04 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/07 13:38:41 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/05/21 15:02:18 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,15 @@ void handleInterruption(bool status) {
  * @return std::string The command entered by the user.
  */
 std::string promptUser() {
-    std::string input;
+    std::string prompt;
     std::cout << "Enter command (ADD, SEARCH, EXIT): " << std::endl;
     std::cout << "> ";
 
-    bool status = std::getline(std::cin, input);
-    handleInterruption(status);
-
-    return input;
+    if (!std::getline(std::cin, prompt)) {
+        handleInterruption(false);
+    }
+    
+    return prompt;
 }
 
 /**
@@ -114,9 +115,10 @@ std::string getUserData(const std::string &field)
 
     while (true) {
         std::cout << field << ": ";
-        bool status = std::getline(std::cin, input);
 
-        handleInterruption(status);
+        if (!std::getline(std::cin, input)) {
+            handleInterruption(false);
+        }
         if (!input.empty())
             break;
         std::cout << "Field cannot be empty. Try again.\n";

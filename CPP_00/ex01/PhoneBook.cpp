@@ -6,7 +6,7 @@
 /*   By: imunaev- <imunaev-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:50:54 by imunaev-          #+#    #+#             */
-/*   Updated: 2025/04/07 13:33:37 by imunaev-         ###   ########.fr       */
+/*   Updated: 2025/05/21 15:03:02 by imunaev-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@
  *
  * Initializes the phone book with zero contacts and sets the oldest contact index to zero.
  */
-PhoneBook::PhoneBook() : totalContacts(0), oldestContact(0) {}
+PhoneBook::PhoneBook() : 
+		totalContacts(0),
+		oldestContact(0)
+		{}
 
 /**
  * @brief Adds a new contact to the phonebook.
