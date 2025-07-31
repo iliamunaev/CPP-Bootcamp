@@ -4,7 +4,7 @@ TARGET := test
 GCC := g++
 GCCFLAGS := -Wall -Werror -Wextra -std=c++17
 
-SRC := newZombieTest.cpp
+SRC := randomChumpTest.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
