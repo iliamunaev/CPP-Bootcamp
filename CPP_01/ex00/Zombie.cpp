@@ -10,9 +10,13 @@ Zombie::~Zombie(void) {
 
 // Create a new Zombie class
 Zombie* newZombie(std::string name) {
-  Zombie* z = new Zombie(name);
-
-  return z;
+  try {
+    return new Zombie(name);
+  }
+  catch (const std::bad_alloc& e) {
+    std::cerr << "Error: memory allocation failed\n";
+    return nullptr;
+  }
 }
 
 // Class Zombie method
