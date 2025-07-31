@@ -1,7 +1,7 @@
 TARGET := Zombie
 
-GCC := g++
-GCCFLAGS := -Wall -Werror -Wextra -std=c++17
+GXX := g++
+GXXFLAGS := -Wall -Werror -Wextra -std=c++17
 
 SRC := main.cpp \
 	Zombie.cpp
@@ -12,12 +12,12 @@ OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(GCC) $(GCCFLAGS) -o $@ $^
+	$(GXX) $(GXXFLAGS) -o $@ $^
 
 # Compile .cpp to obj/*.o
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
-	$(GCC) $(GCCFLAGS) -c $< -o $@
+	$(GXX) $(GXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJDIR)

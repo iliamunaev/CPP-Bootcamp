@@ -5,7 +5,7 @@ Zombie::Zombie(std::string name) : _name(name) {}
 
 // Destructor
 Zombie::~Zombie(void) {
-  std::cout << _name << ": is destroied\n";
+  std::cout << _name << ": is destroyed\n";
 }
 
 // Create a new Zombie class
