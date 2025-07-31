@@ -1,38 +1,30 @@
-#include "Zombie.hpp"
+// • A string variable initialized to "HI THIS IS BRAIN".
+// • stringPTR: A pointer to the string.
+// • stringREF: A reference to the string.
+// Your program has to print:
+// • The memory address of the string variable.
+// • The memory address held by stringPTR.
+// • The memory address held by stringREF.
+// And then:
+// • The value of the string variable.
+// • The value pointed to by stringPTR.
+// • The value pointed to by stringREF.
 
-bool is_valid(char *e, long n) {
-    if (*e != '\0' || n <= 0 || n > 1000) {
-        std::cout << "Error: Number of zombies must be a positive int (max 1000).\n";
-        return false;
-    }
+#include <iostream>
 
-    return true;
+void brain(void) {
+    std::string s = "HI THIS IS BRAIN\n";
+
+    std::string* stringPTR = &s;
+    std::string& stringREF = s;
+
+    std::cout  << &s << ": memory address of the string variable" << std::endl;
+    std::cout  << stringPTR << ": memory memory address held by stringPTR" << std::endl;
+    std::cout  << &stringREF << ": memory memory address held by stringREF" << std::endl;
 }
 
-int main(int argc, char **argv) {
-    if (argc != 3) {
-        std::cout << "Error: too many arguments.\nUsage Zombie <number of zombies> <name>\n";
-        return 1;
-    }
-
-    char* end;
-    long N = std::strtol(argv[1], &end, 10);
-
-    if (!is_valid(end, N)) {
-        return 1;
-    }
-
-    std::string name = argv[2];
-
-    Zombie* zh = zombieHorde(N, name);
-    if (!zh)
-        return 1;
-        
-    // test
-    // for (int i = 0; i < N; ++i)
-    //         zh[i].announce();
-
-    delete[] zh;
+int main(void) {
+    brain();
 
     return 0;
 }
