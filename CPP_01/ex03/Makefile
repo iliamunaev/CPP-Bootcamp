@@ -4,7 +4,9 @@ GXX := g++
 GXXFLAGS := -Wall -Werror -Wextra -std=c++17
 
 SRC := main.cpp \
-		Weapon.cpp
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
