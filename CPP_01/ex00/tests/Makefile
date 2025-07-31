@@ -1,9 +1,11 @@
 
-TARGET := testZombie
+TARGET := test
 
 GCC := g++
 GCCFLAGS := -Wall -Werror -Wextra -std=c++17
-SRC := ZombieTest.cpp
+
+SRC := newZombieTest.cpp
+
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
