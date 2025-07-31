@@ -1,11 +1,10 @@
-TARGET := Zombie
+TARGET := Weapon
 
 GXX := g++
 GXXFLAGS := -Wall -Werror -Wextra -std=c++17
 
 SRC := main.cpp \
-	Zombie.cpp \
-	zombieHorde.cpp
+		Weapon.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
