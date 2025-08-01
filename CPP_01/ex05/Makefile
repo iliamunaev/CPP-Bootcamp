@@ -3,7 +3,8 @@ TARGET := Harl
 GXX := g++
 GXXFLAGS := -Wall -Werror -Wextra -std=c++17
 
-SRC := main.cpp
+SRC := main.cpp \
+		Harl.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
