@@ -1,15 +1,12 @@
 #include "Zombie.hpp"
 
-// Constructor: using initializer list
-Zombie::Zombie(std::string name) : _name(name) {}
+Zombie::Zombie(std::string name) : m_name(name) {}
 
-// Destructor
 Zombie::~Zombie(void) {
-  std::cout << _name << ": is destroyed\n";
+  std::cout << m_name << ": is destroyed\n";
 }
 
-// Create a new Zombie class
-Zombie* newZombie(std::string name) {
+Zombie* newZombie(const std::string name) {
   try {
     return new Zombie(name);
   }
@@ -19,13 +16,11 @@ Zombie* newZombie(std::string name) {
   }
 }
 
-// Class Zombie method
 void Zombie::announce(void) {
-  std::cout << _name << ": BraiiiiiiinnnzzzZ...\n";
+  std::cout << m_name << ": BraiiiiiiinnnzzzZ...\n";
 }
 
-// Create Zombie instance, call annonunce method, destroy instance
-void randomChump(std::string name) {
+void randomChump(const std::string name) {
   Zombie* z = newZombie(name);
   z->announce();
 
