@@ -1,5 +1,5 @@
-#ifndef HARL_05_HPP
-#define HARL_05_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <iostream>
 
@@ -22,4 +22,4 @@ class Harl {
     void (Harl::*m_comments[NUM_LEVELS])(void);
 };
 
-#endif // HARL_05_HPP
+#endif // HARL_HPP
