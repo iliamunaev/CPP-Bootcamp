@@ -4,15 +4,18 @@
 #include <iostream>
 
 class Weapon {
-	private:
-		std::string _type;
+  public:
+    Weapon() = delete;
+    Weapon(const std::string type);
+    ~Weapon() = default;
+    Weapon(const Weapon& other) = delete;
+    Weapon& operator=(const Weapon& other) = delete;
 
-	public:
-		Weapon();
-		Weapon(std::string type);
-		~Weapon();
-		void setType(std::string type);
-		const std::string& getType();
+    void setType(const std::string type);
+    const std::string& getType(void);
+
+  private:
+    std::string m_type;
 
 };
 
