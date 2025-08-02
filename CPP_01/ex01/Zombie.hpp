@@ -4,16 +4,19 @@
 #include <iostream>
 
 class Zombie {
-    std::string _name;
-
   public:
-    Zombie();
-    Zombie(std::string name);
-    ~Zombie(void);
+    Zombie() = default;
+    ~Zombie();
+    Zombie(const Zombie& other) = delete;
+    Zombie& operator=(const Zombie& other) = delete;
+
     void announce(void);
-    void setName(std::string name);
+    void setName(const std::string name);
+
+  private:
+    std::string m_name;
 };
 
-Zombie* zombieHorde(int N, std::string name);
+Zombie* zombieHorde(const int N, const std::string name);
 
 #endif //ZOMBIE_HPP
