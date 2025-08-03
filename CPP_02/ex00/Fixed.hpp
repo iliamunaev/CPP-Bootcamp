@@ -1,9 +1,7 @@
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#ifndef FIXED_00_HPP
+#define FIXED_00_HPP
 
 #include <iostream>
-
-#define F_BITS_8 8;
 
 class Fixed {
   public:
@@ -16,8 +14,8 @@ class Fixed {
     void setRawBits(int const raw);
 
   private:
-    static const int m_FractionalBits = F_BITS_8;
+    static const int m_FractionalBits = 8;
     int m_RawBits;
 };
 
-#endif // FIXED_HPP
+#endif // FIXED_00_HPP
