@@ -16,5 +16,11 @@ int main(void) {
 
     std::cout << b << std::endl;
 
+
+    const Fixed c(3.65f);
+    const Fixed d(4.83838383f);
+    std::cout << Fixed::max(c, d) << std::endl;
+
+    std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
 }

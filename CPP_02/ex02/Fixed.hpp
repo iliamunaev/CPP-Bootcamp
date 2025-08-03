@@ -35,6 +35,11 @@ class Fixed {
     Fixed operator++(int);
     Fixed operator--(int);
 
+    static Fixed& min(Fixed& a, Fixed& b);
+    static const Fixed& min(const Fixed& a, const Fixed& b);
+    static Fixed& max(Fixed& a, Fixed& b);
+    static const Fixed& max(const Fixed& a, const Fixed& b);
+
   private:
     static const int m_FractionalBits = 8;
     int m_RawBits;
