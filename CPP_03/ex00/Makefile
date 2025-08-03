@@ -1,9 +1,10 @@
-TARGET := Fixed
+TARGET := ClapTrap
 
 GXX := g++
 GXXFLAGS := -Wall -Werror -Wextra -std=c++17
 
-SRC := main.cpp
+SRC := main.cpp \
+		ClapTrap.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
