@@ -1,7 +1,7 @@
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef WEAPON_03_HPP
+#define WEAPON_03_HPP
 
-#include <iostream>
+#include <string>
 
 class Weapon {
   public:
@@ -19,4 +19,4 @@ class Weapon {
 
 };
 
-#endif // WEAPON_HPP
+#endif // WEAPON_03_HPP

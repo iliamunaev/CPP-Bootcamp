@@ -1,4 +1,5 @@
 #include "Harl.hpp"
+#include <iostream>
 
 Harl::Harl() {
   m_comments[0] = &Harl::debug;

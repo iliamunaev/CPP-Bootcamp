@@ -1,4 +1,5 @@
 #include "Zombie.hpp"
+#include <iostream>
 
 Zombie* zombieHorde(const int N, const std::string name) {
   Zombie* zh = nullptr;

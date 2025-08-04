@@ -1,8 +1,9 @@
-#ifndef HUMAN_A_HPP
-#define HUMAN_A_HPP
+#ifndef HUMAN_A_03_HPP
+#define HUMAN_A_03_HPP
 
-#include <iostream>
 #include "Weapon.hpp"
+
+#include <string>
 
 class HumanA {
   public:
@@ -19,4 +20,4 @@ class HumanA {
     Weapon& m_weapon;
 };
 
-#endif // HUMAN_A_HPP
+#endif // HUMAN_A_03_HPP

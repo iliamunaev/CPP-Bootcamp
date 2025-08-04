@@ -1,4 +1,6 @@
 #include "replace.hpp"
+#include <fstream>
+#include <iostream>
 
 int findAndReplace(const std::string& fileName, const std::string& str1, const std::string& str2) {
   std::ifstream inFile(fileName); // open file for reading

@@ -1,4 +1,5 @@
 #include "Zombie.hpp"
+#include <iostream>
 
 Zombie::~Zombie(void) {
   std::cout << m_name << ": is destroyed\n";

@@ -1,4 +1,5 @@
 #include "HumanB.hpp"
+#include <iostream>
 
 HumanB::HumanB(const std::string name) :
   m_name(name),
