@@ -1,7 +1,7 @@
 TARGET := Weapon
 
 GXX := g++
-GXXFLAGS := -Wall -Werror -Wextra -std=c++17
+GXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
 SRC := main.cpp \
 		Weapon.cpp \
