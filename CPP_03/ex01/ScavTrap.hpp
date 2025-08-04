@@ -1,7 +1,6 @@
 #ifndef SCAV_TRAP_01_HPP
 #define SCAV_TRAP_01_HPP
 
-#include <iostream>
 #include "ClapTrap.hpp"
 
 class ScavTrap:public ClapTrap {
@@ -12,6 +11,7 @@ class ScavTrap:public ClapTrap {
     ScavTrap& operator=(const ScavTrap& other);
     ~ScavTrap();
 
+    void guardGate();
 };
 
 #endif // SCAV_TRAP_01_HPP

@@ -23,8 +23,12 @@ int main() {
     // Copy assignment operator
     std::cout << "---------------- Test: Copy assignment operator ----------------" << std::endl;
     ScavTrap Carl;
+
+    Carl.guardGate();
     Carl = John;
     std::cout << "---------------- END TEST ----------------\n" << std::endl;
+
+    Carl.guardGate();
 
     return 0;
 }
