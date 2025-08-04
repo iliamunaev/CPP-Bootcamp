@@ -1,7 +1,7 @@
 #ifndef FIXED_00_HPP
 #define FIXED_00_HPP
 
-#include <iostream>
+#include <string>
 
 class Fixed {
   public:
