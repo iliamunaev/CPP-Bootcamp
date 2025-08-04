@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include <iostream>
 
 // Default constructor
 ScavTrap::ScavTrap() {
@@ -36,7 +37,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
   if (this != &other) {
     ClapTrap::operator=(other);
   }
-  
+
   std::cout << "Status for ScavTrap " << m_name << " ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
   return *this;
 }

@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include <iostream>
 
 // Default constructor
 ScavTrap::ScavTrap() {

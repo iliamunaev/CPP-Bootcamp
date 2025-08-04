@@ -1,4 +1,5 @@
 #include "FragTrap.hpp"
+#include <iostream>
 
 FragTrap::FragTrap() {
   m_health = 100;
@@ -37,7 +38,7 @@ FragTrap& FragTrap::operator=(const FragTrap& other) {
 
   return *this;
 }
- // Destructor 
+ // Destructor
 FragTrap::~FragTrap() {
   std::cout << "FragTrap Destructor for " << m_name << " called" << std::endl;
 }
