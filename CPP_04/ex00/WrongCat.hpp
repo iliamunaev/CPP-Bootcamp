@@ -1,8 +1,9 @@
 #ifndef WRONG_CAT_00_HPP
 #define WRONG_CAT_00_HPP
 
+#include <string>
+
 #include "WrongAnimal.hpp"
-#include <iostream>
 
 class WrongCat : public WrongAnimal {
   public:

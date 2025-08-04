@@ -1,11 +1,10 @@
 #ifndef CAT_01_HPP
 #define CAT_01_HPP
 
-#include <iostream>
+#include <string>
 
 #include "Animal.hpp"
 #include "Brain.hpp"
-
 
 class Cat : public Animal {
   public:

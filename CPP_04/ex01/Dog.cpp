@@ -1,4 +1,5 @@
 #include "Dog.hpp"
+#include <iostream>
 
 Dog::Dog() : Animal("Dog"), brain(new Brain()) {
   std::cout << "Dog Default constructor is started" << std::endl;

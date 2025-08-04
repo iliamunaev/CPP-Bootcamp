@@ -1,7 +1,7 @@
 #ifndef BRAIN_01_HPP
 #define BRAIN_01_HPP
 
-#include <iostream>
+#include <string>
 
 class Brain {
   private:

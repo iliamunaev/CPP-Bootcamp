@@ -1,8 +1,9 @@
 #ifndef DOG_00_HPP
 #define DOG_00_HPP
 
+#include <string>
+
 #include "Animal.hpp"
-#include <iostream>
 
 class Dog : public Animal {
   public:
