@@ -1,7 +1,7 @@
 #include "WrongAnimal.hpp"
 #include <iostream>
 
-WrongAnimal::WrongAnimal() : m_type("Default WrongAnimal") {
+WrongAnimal::WrongAnimal() : m_type("WrongAnimal") {
   std::cout << "WrongAnimal Default constructor is started" << std::endl;
 }
 

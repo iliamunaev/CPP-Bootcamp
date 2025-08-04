@@ -27,5 +27,5 @@ void Dog::makeSound(void) const {
 }
 
 std::string Dog::getType(void) const {
-  return m_type;
+  return type;
 }

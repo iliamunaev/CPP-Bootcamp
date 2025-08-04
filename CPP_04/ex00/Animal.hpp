@@ -7,7 +7,7 @@ class Animal {
   public:
     Animal();
     virtual ~Animal();
-    Animal(const std::string& type);
+    Animal(const std::string& t);
     Animal(const Animal& other);
     Animal& operator=(const Animal& other);
 
@@ -15,7 +15,7 @@ class Animal {
     virtual std::string getType(void) const;
 
   protected:
-    std::string m_type;
+    std::string type;
 };
 
 #endif // ANIMAL_00_HPP
