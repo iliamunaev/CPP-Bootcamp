@@ -9,12 +9,14 @@
 class Cat : public Animal {
   public:
     Cat();
-    ~Cat() override;
+    virtual ~Cat() override;
     Cat(const Cat& other);
     Cat& operator=(const Cat& other);
 
     void makeSound(void) const override;
     std::string getType(void) const;
+    Brain& getBrain(void) const;
+    std::string getIdea(int i) const;
 
   private:
     Brain* brain;

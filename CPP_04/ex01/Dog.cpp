@@ -32,3 +32,12 @@ void Dog::makeSound(void) const {
 std::string Dog::getType(void) const {
   return m_type;
 }
+
+Brain& Dog::getBrain(void) const {
+  return *brain;
+}
+
+std::string Dog::getIdea(int i) const {
+  const Brain& brainRef = getBrain();
+  return brainRef.getIdea(i);
+}

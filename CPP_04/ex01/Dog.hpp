@@ -9,12 +9,14 @@
 class Dog : public Animal {
   public:
     Dog();
-    ~Dog() override;
+    virtual ~Dog() override;
     Dog(const Dog& other);
     Dog& operator=(const Dog& other);
 
     void makeSound(void) const override;
     std::string getType(void) const;
+      Brain& getBrain(void) const;
+    std::string getIdea(int i) const;
 
   private:
     Brain* brain;

@@ -32,3 +32,12 @@ void Cat::makeSound(void) const {
 std::string Cat::getType(void) const {
   return Animal::getType();
 }
+
+Brain& Cat::getBrain(void) const {
+  return *brain;
+}
+
+std::string Cat::getIdea(int i) const {
+  const Brain& brainRef = getBrain();
+  return brainRef.getIdea(i);
+}
