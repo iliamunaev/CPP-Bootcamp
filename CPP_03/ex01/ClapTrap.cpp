@@ -38,8 +38,7 @@ void ClapTrap::attack(const std::string &target) {
     std::cout << "[ATTACK] ClapTrap " << name << " is already dead and cannot attack!" << std::endl;
   } else if (energyPoints <= 0) {
     std::cout << "[ATTACK] ClapTrap " << name << " has no energy to attack!" << std::endl;
-  } else
-  {
+  } else {
     if (target.empty()) {
       std::cout << "[ATTACK] ClapTrap " << name << " attacks an unknown target"
                 << ", causing " << attackDamage << " points of damage!" << std::endl;
@@ -74,8 +73,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
   if (amount >= static_cast<unsigned int>(hitPoints)) {
     hitPoints = 0;
     std::cout << "[DAMAGE] " << name << " is dead! HP: " << hitPoints << std::endl;
-  }
-  else {
+  } else {
     hitPoints -= amount;
   }
 
