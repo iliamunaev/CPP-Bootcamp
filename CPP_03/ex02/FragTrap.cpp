@@ -1,48 +1,47 @@
 #include "FragTrap.hpp"
-#include <iostream>
 
-FragTrap::FragTrap() {
-  m_health = 100;
-  m_energyPoints = 100;
-  m_attackDamage = 30;
+FragTrap::FragTrap()
+    : ClapTrap() {
+  hitPoints = NUM_HP_FT;
+  energyPoints = NUM_EP_FT;
+  attackDamage = NUM_AD_FT;
 
   std::cout << "FragTrap Default constructor called" << std::endl;
-  std::cout << "Status for default FragTrap ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
 }
 
 // Name constructor
-FragTrap::FragTrap(const std::string& name) :
-  ClapTrap(name) {
-    m_health = 100;
-    m_energyPoints = 100;
-    m_attackDamage = 30;
+FragTrap::FragTrap(const std::string& n) :
+  ClapTrap(n) {
+    hitPoints = NUM_HP_FT;
+    energyPoints = NUM_EP_FT;
+    attackDamage = NUM_AD_FT;
 
-    std::cout << "FragTrap Name Constructor for " << name << " called" << std::endl;
-    std::cout << "Status for FragTrap " << m_name << " ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
+    std::cout << "FragTrap Name Constructor for " << n << " called" << std::endl;
  }
 
  FragTrap::FragTrap(const FragTrap& other) :
   ClapTrap(other) {
-    std::cout << "FragTrap Copy constructor for " << m_name << " called" << std::endl;
-    std::cout << "Status for FragTrap " << m_name << " ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
+    std::cout << "FragTrap Copy constructor for " << name << " called" << std::endl;
 
   }
 
 FragTrap& FragTrap::operator=(const FragTrap& other) {
-  std::cout << "FragTrap Copy assignment for " << m_name << " called" << std::endl;
+  std::cout << "FragTrap Copy assignment for " << name << " called" << std::endl;
 
   if(this != &other) {
     ClapTrap::operator=(other);
   }
-  std::cout << "Status for FragTrap " << m_name << " ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
-
   return *this;
 }
- // Destructor
+
 FragTrap::~FragTrap() {
-  std::cout << "FragTrap Destructor for " << m_name << " called" << std::endl;
+  std::cout << "FragTrap Destructor for " << name << " called" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) {
-  std::cout << "FragTrap" << m_name << ": Hey, high five!" << std::endl;
+  if (hitPoints > 0) {
+    std::cout << "FragTrap " << name << ": Hey, high five!" << std::endl;
+  } else {
+    std::cout << "FragTrap " << name << ": is dead... no any five anymore..." << std::endl;
+  }
 }

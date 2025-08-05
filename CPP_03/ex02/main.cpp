@@ -1,57 +1,46 @@
 #include "FragTrap.hpp"
-#include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
+#include <iostream>
 
-int main()
-{
-    // Default constructor
-    // std::cout << "---------------- TEST: Default constructor ----------------" << std::endl;
-    // ClapTrap john;
-    // ScavTrap Iona;
-    // FragTrap Baby;
-    // std::cout << "---------------- END TEST ----------------\n" << std::endl;
+int main() {
+    std::cout << "\n[TEST] Create FragTrap f(\"Frank\")\n";
+    FragTrap f("Frank");
 
-    // Name constructor
-    // std::cout << "---------------- TEST: Name constructor ----------------" << std::endl;
-    // ClapTrap John("John");
-    // ScavTrap Iona("Iona");
-    // FragTrap Baby("Baby");
-    // std::cout << "---------------- END TEST ----------------\n" << std::endl;
+    std::cout << "\n[TEST] f requests a high five (alive)\n";
+    f.highFivesGuys();  // Should print "Hey, high five!"
 
-    //  Copy constructor
-    std::cout << "---------------- TEST: Copy constructor ----------------" << std::endl;
-    FragTrap Baby("Baby");
-    FragTrap Bob(Baby);
-    std::cout << "---------------- END TEST ----------------\n" << std::endl;
+    std::cout << "\n[TEST] f attacks Enemy\n";
+    f.attack("Enemy");
 
+    std::cout << "\n[TEST] f takes 50 damage\n";
+    f.takeDamage(50);
 
-    // std::cout << "---------------- TEST: Attack() ----------------" << std::endl;
-    // John.attack("Someone");
-    // Iona.attack("Someone");
-    // Baby.attack("Someone");
-    // std::cout << "---------------- END TEST ----------------\n" << std::endl;
+    std::cout << "\n[TEST] f repairs 30 HP\n";
+    f.beRepaired(30);
 
+    std::cout << "\n[TEST] Drain f's energy points\n";
+    for (int i = 0; i < 100; ++i)
+        f.attack("Drone");
 
-    // std::cout << "---------------- TEST: takeDamage() ----------------" << std::endl;
-    // John.takeDamage(3);
-    // Iona.takeDamage(3);
-    // Baby.takeDamage(3);
-    // std::cout << "---------------- END TEST ----------------\n" << std::endl;
+    std::cout << "\n[TEST] f tries to repair with 0 EP\n";
+    f.beRepaired(10);
 
-    // std::cout << "---------------- TEST: beRepaired() ----------------" << std::endl;
-    // John.beRepaired(1);
-    // Iona.beRepaired(1);
-    // Baby.beRepaired(1);
-    // std::cout << "---------------- END TEST ----------------\n" << std::endl;
+    std::cout << "\n[TEST] f takes 0 damage\n";
+    f.takeDamage(0);
 
+    std::cout << "\n[TEST] f repairs 0 HP\n";
+    f.beRepaired(0);
 
-    // // Copy assignment operator
-    // std::cout << "---------------- TEST: Copy assignment operator ----------------" << std::endl;
-    // FragTrap Carl;
-    // FragTrap John("John");
+    std::cout << "\n[TEST] f takes fatal damage (999)\n";
+    f.takeDamage(999);
 
-    // Carl = John;
-    // std::cout << "---------------- END TEST ----------------\n" << std::endl;
+    std::cout << "\n[TEST] f requests high five after death\n";
+    f.highFivesGuys();  // Should print "...is dead"
+
+    std::cout << "\n[TEST] f tries to attack after death\n";
+    f.attack("Ghost");
+
+    std::cout << "\n[TEST] f tries to repair after death\n";
+    f.beRepaired(10);
 
     return 0;
 }
