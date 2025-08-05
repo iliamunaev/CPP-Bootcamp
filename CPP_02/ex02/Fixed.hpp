@@ -1,7 +1,8 @@
 #ifndef FIXED_02_HPP
 #define FIXED_02_HPP
 
-#include <string>
+#include <iostream>
+#include <cmath>
 
 class Fixed {
   public:
@@ -10,7 +11,7 @@ class Fixed {
     Fixed(const float f);
     Fixed(const Fixed& other);
     Fixed& operator=(const Fixed& other);
-    ~Fixed() = default;
+    ~Fixed();
 
     int getRawBits(void) const;
     void setRawBits(int const raw);
@@ -40,15 +41,11 @@ class Fixed {
     static const Fixed& max(const Fixed& a, const Fixed& b);
 
   private:
-    static const int m_FractionalBits = 8;
+     static constexpr int m_FractionalBits = 8;
     int m_RawBits;
 };
 
-// Overload operations
+// Stream output overload
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
-
-// The 6 comparison operators: >, <, >=, <=, == and !=.
-
-
 
 #endif // FIXED_02_HPP
