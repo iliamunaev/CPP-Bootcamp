@@ -36,3 +36,22 @@ ScavTrap::~ScavTrap() {
 void ScavTrap::guardGate(void) {
   std::cout << "ScavTrap " << name << " is now in Gate keeper mode" << std::endl;
 }
+
+void ScavTrap::attack(const std::string& target) {
+    if (hitPoints <= 0) {
+        std::cout << "[ATTACK] ScavTrap " << name << " is already dead and cannot attack!" << std::endl;
+    } else if (energyPoints <= 0) {
+        std::cout << "[ATTACK] ScavTrap " << name << " has no energy to attack!" << std::endl;
+    } else {
+        std::cout << "[ATTACK] ScavTrap " << name << " throws a gate slam at " << target
+                  << ", dealing " << attackDamage << " points of damage!" << std::endl;
+        --energyPoints;
+    }
+
+     std::cout << "[STATUS] " << name << ":"
+            << " HP: " << hitPoints
+            << " EP: " << energyPoints
+            << " AD: " << attackDamage
+            << "\n"
+            << std::endl;
+}
