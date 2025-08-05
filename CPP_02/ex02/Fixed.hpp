@@ -41,7 +41,7 @@ class Fixed {
     static const Fixed& max(const Fixed& a, const Fixed& b);
 
   private:
-     static constexpr int m_FractionalBits = 8;
+    static constexpr int m_FractionalBits = 8;
     int m_RawBits;
 };
 
