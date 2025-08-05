@@ -1,12 +1,16 @@
 #ifndef  CLAP_TRAP_00_H
 #define  CLAP_TRAP_00_H
 
-#include <string>
+#include <iostream>
+
+#define NUM_HP 10
+#define NUM_EP 10
+#define NUM_AD 0
 
 class ClapTrap {
   public:
     ClapTrap();
-    ClapTrap(const std::string& name);
+    ClapTrap(const std::string& n);
     ClapTrap(const ClapTrap& other);
     ClapTrap& operator=(const ClapTrap& other);
     ~ClapTrap();
@@ -16,10 +20,10 @@ class ClapTrap {
     void beRepaired(unsigned int amount);
 
   private:
-    std:: string m_name;
-    unsigned int m_health;
-    unsigned int m_energyPoints;
-    unsigned int m_attackDamage;
+    std:: string name;
+    unsigned int hitPoints;
+    unsigned int energyPoints;
+    unsigned int attackDamage;
 };
 
 #endif // CLAP_TRAP_00_H

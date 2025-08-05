@@ -1,28 +1,45 @@
 #include "ClapTrap.hpp"
+#include <iostream>
 
 int main() {
-	ClapTrap Baby("Baby");
+    ClapTrap a("Tom");
 
-	Baby.attack("John");
+    std::cout << "\n[TEST] Initial attack:\n";
+    a.attack("Jerry");
 
-	Baby.takeDamage(2);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
-	Baby.beRepaired(1);
+    std::cout << "\n[TEST] Taking damage (5):\n";
+    a.takeDamage(5);
 
-	Baby.attack("John");
+    std::cout << "\n[TEST] Repairing (3):\n";
+    a.beRepaired(3);
 
+    std::cout << "\n[TEST] Edge: attack with 0 EP:\n";
+    // Drain all energy
+    for (int i = 0; i < 20; ++i)
+        a.attack("Neighbour");
 
+		// Fail due to no energy
+    std::cout << "\n[TEST] Edge: repair with 0 EP:\n";
+    a.beRepaired(1);
 
-	Baby.takeDamage(17);
-	Baby.takeDamage(1);
+    std::cout << "\n[TEST] Edge: take 0 damage:\n";
+    a.takeDamage(0);
 
+		// No healing
+    std::cout << "\n[TEST] Edge: repair 0 HP:\n";
+    a.beRepaired(0);
 
-	return 0;
+		// Kill the ClapTrap
+    std::cout << "\n[TEST] Fatal damage:\n";
+    a.takeDamage(999);
+
+		// Fail due to 0 HP
+    std::cout << "\n[TEST] Attack after death:\n";
+    a.attack("Jerry");
+
+		// Fail due to 0 HP
+    std::cout << "\n[TEST] Repair after death:\n";
+    a.beRepaired(10);
+
+    return 0;
 }
