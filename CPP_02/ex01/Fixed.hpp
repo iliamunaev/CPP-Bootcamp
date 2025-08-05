@@ -1,7 +1,8 @@
 #ifndef FIXED_01_HPP
 #define FIXED_01_HPP
 
-#include <string>
+#include <iostream>
+#include <cmath>
 
 class Fixed {
   public:
@@ -18,7 +19,7 @@ class Fixed {
     float toFloat(void) const;
 
   private:
-    static const int m_FractionalBits = 8;
+    static constexpr int m_FractionalBits = 8;
     int m_RawBits;
 };
 

@@ -1,32 +1,20 @@
 #include "Fixed.hpp"
-#include <iostream>
-#include <cmath>
 
-Fixed::Fixed() {
+Fixed::Fixed() : m_RawBits(0) {
   std::cout << "Default constructor called" << std::endl;
-};
+}
 
 Fixed::Fixed(const Fixed& other) : m_RawBits(other.m_RawBits) {
-    std::cout << "Copy constructor called" << std::endl;
+  std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
+  std::cout << "Copy assignment operator called" << std::endl;
 
   if (this != &other) {
     this->m_RawBits = other.m_RawBits;
   }
-  std::cout << "Copy assignment operator called" << std::endl;
   return *this;
-}
-
-
-Fixed::Fixed(const int i) : m_RawBits(i << m_FractionalBits) {
-  std::cout << "Int constructor called" << std::endl;
-}
-
-Fixed::Fixed(const float f) :
-  m_RawBits(static_cast<int>(roundf(f * (1 << m_FractionalBits)))) {
-  std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::~Fixed() {
@@ -40,7 +28,18 @@ int Fixed::getRawBits(void) const {
 }
 
 void Fixed::setRawBits(int const raw) {
+  std::cout << "setRawBits member function called" << std::endl;
+
   m_RawBits = raw;
+}
+
+Fixed::Fixed(const int i) : m_RawBits(i << m_FractionalBits) {
+  std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float f) :
+  m_RawBits(static_cast<int>(roundf(f * (1 << m_FractionalBits)))) {
+  std::cout << "Float constructor called" << std::endl;
 }
 
 int Fixed::toInt(void) const {
