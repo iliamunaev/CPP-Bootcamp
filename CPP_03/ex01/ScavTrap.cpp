@@ -1,54 +1,67 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-    : ClapTrap() {
-  hitPoints = NUM_HP_CT_ST;
-  energyPoints = NUM_EP_CT_ST;
-  attackDamage = NUM_AD_CT_ST;
+    : ClapTrap()
+{
+  hitPoints = NUM_HP_ST;
+  energyPoints = NUM_EP_ST;
+  attackDamage = NUM_AD_ST;
   std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &n)
-    : ClapTrap(n) {
-  hitPoints = NUM_HP_CT_ST;
-  energyPoints = NUM_EP_CT_ST;
-  attackDamage = NUM_AD_CT_ST;
+    : ClapTrap(n)
+{
+  hitPoints = NUM_HP_ST;
+  energyPoints = NUM_EP_ST;
+  attackDamage = NUM_AD_ST;
 
   std::cout << "ScavTrap Name Constructor for " << n << " called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
   std::cout << "ScavTrap Copy constructor for " << name << " called" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+{
   std::cout << "ScavTrap Copy assignment for " << name << " called" << std::endl;
-  if (this != &other) {
+  if (this != &other)
+  {
     ClapTrap::operator=(other);
   }
   return *this;
 }
 
-ScavTrap::~ScavTrap() {
+ScavTrap::~ScavTrap()
+{
   std::cout << "ScavTrap Destructor for " << name << " called" << std::endl;
 }
 
-void ScavTrap::guardGate(void) {
+void ScavTrap::guardGate(void)
+{
   std::cout << "ScavTrap " << name << " is now in Gate keeper mode" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target) {
-    if (hitPoints <= 0) {
-        std::cout << "[ATTACK] ScavTrap " << name << " is already dead and cannot attack!" << std::endl;
-    } else if (energyPoints <= 0) {
-        std::cout << "[ATTACK] ScavTrap " << name << " has no energy to attack!" << std::endl;
-    } else {
-        std::cout << "[ATTACK] ScavTrap " << name << " throws a gate slam at " << target
-                  << ", dealing " << attackDamage << " points of damage!" << std::endl;
-        --energyPoints;
-    }
+void ScavTrap::attack(const std::string &target)
+{
+  if (hitPoints <= 0)
+  {
+    std::cout << "[ATTACK] ScavTrap " << name << " is already dead and cannot attack!" << std::endl;
+  }
+  else if (energyPoints <= 0)
+  {
+    std::cout << "[ATTACK] ScavTrap " << name << " has no energy to attack!" << std::endl;
+  }
+  else
+  {
+    std::cout << "[ATTACK] ScavTrap " << name << " throws a gate slam at " << target
+              << ", dealing " << attackDamage << " points of damage!" << std::endl;
+    --energyPoints;
+  }
 
-     std::cout << "[STATUS] " << name << ":"
+  std::cout << "[STATUS] " << name << ":"
             << " HP: " << hitPoints
             << " EP: " << energyPoints
             << " AD: " << attackDamage

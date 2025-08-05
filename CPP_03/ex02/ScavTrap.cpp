@@ -1,52 +1,70 @@
 #include "ScavTrap.hpp"
-#include <iostream>
 
-// Default constructor
-ScavTrap::ScavTrap() {
-  m_health = 100;
-  m_energyPoints = 50;
-  m_attackDamage = 20;
-
+ScavTrap::ScavTrap()
+    : ClapTrap()
+{
+  hitPoints = NUM_HP_ST;
+  energyPoints = NUM_EP_ST;
+  attackDamage = NUM_AD_ST;
   std::cout << "ScavTrap Default constructor called" << std::endl;
-  std::cout << "Status for default ScavTrap ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
 }
 
-// Name constructor
-ScavTrap::ScavTrap(const std::string& name) :
-  ClapTrap(name) {
-    m_health = 100;
-    m_energyPoints = 50;
-    m_attackDamage = 20;
+ScavTrap::ScavTrap(const std::string &n)
+    : ClapTrap(n)
+{
+  hitPoints = NUM_HP_ST;
+  energyPoints = NUM_EP_ST;
+  attackDamage = NUM_AD_ST;
 
-    std::cout << "ScavTrap Name Constructor for " << m_name << " called" << std::endl;
-    std::cout << "Status for ScavTrap " << m_name << " ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
-
+  std::cout << "ScavTrap Name Constructor for " << n << " called" << std::endl;
 }
 
-// Copy constructor
-ScavTrap::ScavTrap(const ScavTrap& other) :
-  ClapTrap(other) {
-    std::cout << "ScavTrap Copy constructor for " << m_name << " called" << std::endl;
-    std::cout << "Status for ScavTrap " << m_name << " ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
-
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+  std::cout << "ScavTrap Copy constructor for " << name << " called" << std::endl;
 }
 
-// Copy assignment operator
-ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
-  std::cout << "ScavTrap Copy assignment for " << m_name << " called" << std::endl;
-  if (this != &other) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+{
+  std::cout << "ScavTrap Copy assignment for " << name << " called" << std::endl;
+  if (this != &other)
+  {
     ClapTrap::operator=(other);
   }
-
-  std::cout << "Status for ScavTrap " << m_name << " ==> HP: " << m_health << " EP: " << m_energyPoints << " AD: " << m_attackDamage << std::endl;
   return *this;
 }
 
-// Destructor
-ScavTrap::~ScavTrap() {
-  std::cout << "ScavTrap Destructor for " << m_name << " called" << std::endl;
+ScavTrap::~ScavTrap()
+{
+  std::cout << "ScavTrap Destructor for " << name << " called" << std::endl;
 }
 
-void ScavTrap::guardGate(void) {
-  std::cout << "ScavTrap " << m_name << " is now in Gate keeper mode" << std::endl;
+void ScavTrap::guardGate(void)
+{
+  std::cout << "ScavTrap " << name << " is now in Gate keeper mode" << std::endl;
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+  if (hitPoints <= 0)
+  {
+    std::cout << "[ATTACK] ScavTrap " << name << " is already dead and cannot attack!" << std::endl;
+  }
+  else if (energyPoints <= 0)
+  {
+    std::cout << "[ATTACK] ScavTrap " << name << " has no energy to attack!" << std::endl;
+  }
+  else
+  {
+    std::cout << "[ATTACK] ScavTrap " << name << " throws a gate slam at " << target
+              << ", dealing " << attackDamage << " points of damage!" << std::endl;
+    --energyPoints;
+  }
+
+  std::cout << "[STATUS] " << name << ":"
+            << " HP: " << hitPoints
+            << " EP: " << energyPoints
+            << " AD: " << attackDamage
+            << "\n"
+            << std::endl;
 }
