@@ -1,11 +1,12 @@
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef ZOMBIE_01_HPP
+#define ZOMBIE_01_HPP
 
-#include <string>
+#include <iostream>
 
 class Zombie {
   public:
-    Zombie() = default;
+    Zombie();
+    Zombie(std::string name);
     ~Zombie();
     Zombie(const Zombie& other) = delete;
     Zombie& operator=(const Zombie& other) = delete;
@@ -17,6 +18,8 @@ class Zombie {
     std::string m_name;
 };
 
-Zombie* zombieHorde(const int N, const std::string name);
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
-#endif //ZOMBIE_HPP
+#endif //ZOMBIE_01_HPP

@@ -1,9 +1,12 @@
 #include "Zombie.hpp"
-#include <iostream>
 
-Zombie* zombieHorde(const int N, const std::string name) {
+Zombie* zombieHorde(int N, std::string name) {
+  if (N <= 0) {
+    std::cerr << "Invalid zombie count!\n";
+    return nullptr;
+  }
+  
   Zombie* zh = nullptr;
-
   try {
     zh = new Zombie[N];
   }

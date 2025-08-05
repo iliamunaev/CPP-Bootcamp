@@ -1,38 +1,33 @@
 #include "Zombie.hpp"
+#include <iostream>
 
-bool is_valid(char *e, long n) {
-  if (*e != '\0' || n <= 0 || n > 1000) {
-    std::cout << "Error: Number of zombies must be a positive int (max 1000).\n";
-    return false;
-  }
+int main() {
+  std::cout << "[Test 1] Create a horde of 5 zombies named 'Walker'\n" << std::endl;
 
-  return true;
-}
+  int count = 5;
+  Zombie* horde = zombieHorde(count, "Walker");
 
-int main(int argc, char **argv) {
-  if (argc != 3) {
-    std::cout << "Validation error: \nUsage Zombie <number of zombies> <name>\n";
+  if (!horde) {
+    std::cerr << "Failed to create zombie horde!" << std::endl;
     return 1;
   }
 
-  char* end;
-  long N = std::strtol(argv[1], &end, 10);
-
-  if (!is_valid(end, N)) {
-    return 1;
+  for (int i = 0; i < count; ++i) {
+    std::cout << "Zombie #" << i << " -> ";
+    horde[i].announce();
   }
 
-  std::string name = argv[2];
+  delete[] horde;
+  std::cout << "\n[Test 1 Complete] Horde destroyed.\n" << std::endl;
 
-  Zombie* zh = zombieHorde(N, name);
-  if (!zh)
-    return 1;
-
-  // test
-  for (int i = 0; i < N; ++i)
-    zh[i].announce();
-
-  delete[] zh;
+  std::cout << "[Test 2] Edge case: zero zombies\n" << std::endl;
+  Zombie* emptyHorde = zombieHorde(0, "Ghost");
+  if (!emptyHorde) {
+    std::cout << "Correctly handled zero-sized horde." << std::endl;
+  } else {
+    std::cerr << "Unexpected allocation!" << std::endl;
+    delete[] emptyHorde;
+  }
 
   return 0;
 }
