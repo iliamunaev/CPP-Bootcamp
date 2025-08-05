@@ -1,25 +1,29 @@
-#ifndef  CLAP_TRAP_01_H
-#define  CLAP_TRAP_01_H
+#ifndef CLAP_TRAP_01_H
+#define CLAP_TRAP_01_H
 
-#include <string>
+#include <iostream>
+
+#define NUM_HP_CT 10
+#define NUM_EP_CT 10
+#define NUM_AD_CT 0
 
 class ClapTrap {
   public:
     ClapTrap();
-    ClapTrap(const std::string& name);
-    ClapTrap(const ClapTrap& other);
-    ClapTrap& operator=(const ClapTrap& other);
+    ClapTrap(const std::string &n);
+    ClapTrap(const ClapTrap &other);
+    ClapTrap &operator=(const ClapTrap &other);
     ~ClapTrap();
 
-    void attack(const std::string& target);
+    void attack(const std::string &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
   protected:
-    std:: string m_name;
-    unsigned int m_health;
-    unsigned int m_energyPoints;
-    unsigned int m_attackDamage;
+    std::string name;
+    unsigned int hitPoints;
+    unsigned int energyPoints;
+    unsigned int attackDamage;
 };
 
 #endif // CLAP_TRAP_01_H
