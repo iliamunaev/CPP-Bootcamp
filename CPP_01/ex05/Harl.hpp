@@ -1,7 +1,7 @@
 #ifndef HARL_HPP
 #define HARL_HPP
 
-#include <string>
+#include <iostream>
 
 #define NUM_LEVELS 4
 

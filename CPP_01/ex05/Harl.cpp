@@ -1,5 +1,4 @@
 #include "Harl.hpp"
-#include <iostream>
 
 Harl::Harl() {
   m_comments[0] = &Harl::debug;
@@ -8,7 +7,6 @@ Harl::Harl() {
   m_comments[3] = &Harl::error;
 }
 
-// Find and execute mathod according passed level
 void Harl::complain(const std::string& level) {
   const std::string levels[NUM_LEVELS] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 

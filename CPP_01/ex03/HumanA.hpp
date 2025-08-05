@@ -3,7 +3,7 @@
 
 #include "Weapon.hpp"
 
-#include <string>
+#include <iostream>
 
 class HumanA {
   public:
@@ -13,7 +13,7 @@ class HumanA {
     HumanA(const HumanA& other) = delete;
     HumanA& operator=(const HumanA& other) = delete;
 
-    void attack();
+    void attack(void);
 
   private:
     std::string m_name;

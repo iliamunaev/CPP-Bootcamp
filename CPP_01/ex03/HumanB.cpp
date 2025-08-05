@@ -1,10 +1,7 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-HumanB::HumanB(const std::string name) :
-  m_name(name),
-  m_weapon(nullptr)
-  {}
+HumanB::HumanB(const std::string name) : m_name(name), m_weapon(nullptr) {}
 
 void HumanB::setWeapon(Weapon& weapon) {
   m_weapon = &weapon;

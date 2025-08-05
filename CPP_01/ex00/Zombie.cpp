@@ -1,13 +1,14 @@
 #include "Zombie.hpp"
-#include <iostream>
 
-Zombie::Zombie(std::string name) : m_name(name) {}
-
-Zombie::~Zombie(void) {
-  std::cout << m_name << ": is destroyed\n";
+Zombie::Zombie(std::string name) : m_name(name) {
+  std::cout << "Constructor for " << m_name << " called" << std::endl;
 }
 
-Zombie* newZombie(const std::string name) {
+Zombie::~Zombie(void) {
+    std::cout << "Destructor for " << m_name << " called" << std::endl;
+}
+
+Zombie* newZombie(std::string name) {
   try {
     return new Zombie(name);
   }
@@ -18,13 +19,10 @@ Zombie* newZombie(const std::string name) {
 }
 
 void Zombie::announce(void) {
-  std::cout << m_name << ": BraiiiiiiinnnzzzZ...\n";
+  std::cout << m_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void randomChump(const std::string name) {
-  Zombie* z = newZombie(name);
-  z->announce();
-
-  delete z;
-  z = nullptr;
+void randomChump(std::string name) {
+  Zombie z(name);
+  z.announce();
 }

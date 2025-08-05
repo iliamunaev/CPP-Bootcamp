@@ -16,7 +16,6 @@ class Weapon {
 
   private:
     std::string m_type;
-
 };
 
 #endif // WEAPON_03_HPP

@@ -1,11 +1,57 @@
 #include "Zombie.hpp"
 
-int main(int argc, char **argv) {
-  if (argc != 2) {
-    std::cout << "Error: Usage Zombie <name>\n";
-    return 1;
+void testNewZombie() {
+  std::cout << "\n[Test] newZombie (Heap Allocation)" << std::endl;
+
+  Zombie* z = newZombie("HeapZombie");
+  if (z) {
+    z->announce();
+    delete z;
+  }
+}
+
+void testRandomChump() {
+  std::cout << "\n[Test] randomChump (Stack Allocation)" << std::endl;
+  randomChump("StackZombie");
+}
+
+void testMultipleZombies() {
+  std::cout << "\n[Test] Multiple newZombies" << std::endl;
+
+  Zombie* z1 = newZombie("Zombie1");
+  Zombie* z2 = newZombie("Zombie2");
+
+  if (z1 && z2) {
+    z1->announce();
+    z2->announce();
   }
 
-  randomChump(argv[1]);
+  delete z1;
+  delete z2;
+}
+
+void testNullZombie() {
+  std::cout << "\n[Test] Simulate null zombie allocation" << std::endl;
+
+  Zombie* z = nullptr;
+  try {
+    z = new Zombie("MaybeZombie");
+    z->announce();
+  } catch (...) {
+    std::cout << "Failed to allocate zombie." << std::endl;
+  }
+
+  delete z;
+}
+
+int main() {
+  std::cout << "[Zombie Test Start]" << std::endl;
+
+  testNewZombie();
+  testRandomChump();
+  testMultipleZombies();
+  testNullZombie();
+
+  std::cout << "\n[Zombie Test End]" << std::endl;
   return 0;
 }
