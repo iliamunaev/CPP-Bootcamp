@@ -1,5 +1,4 @@
 #include "Animal.hpp"
-#include <iostream>
 
 Animal::Animal() : m_type("Unknown") {
   std::cout << "Animal Default constructor is started" << std::endl;

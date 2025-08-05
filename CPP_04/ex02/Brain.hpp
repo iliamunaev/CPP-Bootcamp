@@ -1,11 +1,22 @@
 #ifndef BRAIN_02_HPP
 #define BRAIN_02_HPP
 
-#include <string>
+#include <iostream>
+
+#define NUM_IDEAS 100
 
 class Brain {
+  public:
+    Brain();
+    Brain(const Brain& other);
+    Brain& operator=(const Brain& other);
+    ~Brain();
+
+    std::string getIdea(int i) const;
+    void setIdea(int i, const std::string& idea);
+
   private:
-    std::string ideas[100];
+    std::string ideas[NUM_IDEAS];
 };
 
 #endif //BRAIN_02_HPP

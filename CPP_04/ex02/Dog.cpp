@@ -1,5 +1,4 @@
 #include "Dog.hpp"
-#include <iostream>
 
 Dog::Dog() : Animal("Dog"), brain(new Brain()) {
   std::cout << "Dog Default constructor is started" << std::endl;
@@ -31,4 +30,13 @@ void Dog::makeSound(void) const {
 
 std::string Dog::getType(void) const {
   return m_type;
+}
+
+Brain& Dog::getBrain(void) const {
+  return *brain;
+}
+
+std::string Dog::getIdea(int i) const {
+  const Brain& brainRef = getBrain();
+  return brainRef.getIdea(i);
 }

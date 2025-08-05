@@ -6,7 +6,8 @@ GXXFLAGS := -Wall -Werror -Wextra  -Wshadow -g -std=c++17
 SRC := main.cpp \
 		Animal.cpp \
 		Cat.cpp \
-		Dog.cpp
+		Dog.cpp \
+		Brain.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)

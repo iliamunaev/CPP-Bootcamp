@@ -1,5 +1,4 @@
 #include "Cat.hpp"
-#include <iostream>
 
 Cat::Cat() : Animal("Cat"), brain(new Brain()) {
   std::cout << "Cat Default constructor is started" << std::endl;

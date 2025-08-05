@@ -1,7 +1,7 @@
 #ifndef ANIMAL_00_HPP
 #define ANIMAL_00_HPP
 
-#include <string>
+#include <iostream>
 
 class Animal {
   public:

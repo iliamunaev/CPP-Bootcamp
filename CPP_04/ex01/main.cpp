@@ -86,8 +86,8 @@ void testCopyConstructor() {
 
 
 int main() {
-    // testAnimalArray();
-    // testDogDeepCopy();
+    testAnimalArray();
+    testDogDeepCopy();
     testCopyConstructor();
 
     return 0;
