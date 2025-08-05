@@ -1,45 +1,54 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-int main() {
+void testClapTrapBasic() {
+    std::cout << "\n[TEST] Constructing ClapTrap a(\"Tom\")\n";
     ClapTrap a("Tom");
 
-    std::cout << "\n[TEST] Initial attack:\n";
+    std::cout << "\n[TEST] a attacks \"Jerry\"\n";
     a.attack("Jerry");
 
-    std::cout << "\n[TEST] Taking damage (5):\n";
+    std::cout << "\n[TEST] a takes 5 damage\n";
     a.takeDamage(5);
 
-    std::cout << "\n[TEST] Repairing (3):\n";
+    std::cout << "\n[TEST] a repairs 3 HP\n";
     a.beRepaired(3);
 
-    std::cout << "\n[TEST] Edge: attack with 0 EP:\n";
-    // Drain all energy
+    std::cout << "\n[TEST] Drain a's energy points\n";
     for (int i = 0; i < 20; ++i)
-        a.attack("Neighbour");
+        a.attack("Neigbour");
 
-		// Fail due to no energy
-    std::cout << "\n[TEST] Edge: repair with 0 EP:\n";
+    std::cout << "\n[TEST] a tries to repair with 0 EP\n";
     a.beRepaired(1);
 
-    std::cout << "\n[TEST] Edge: take 0 damage:\n";
+    std::cout << "\n[TEST] a takes 0 damage\n";
     a.takeDamage(0);
 
-		// No healing
-    std::cout << "\n[TEST] Edge: repair 0 HP:\n";
+    std::cout << "\n[TEST] a repairs 0 HP\n";
     a.beRepaired(0);
 
-		// Kill the ClapTrap
-    std::cout << "\n[TEST] Fatal damage:\n";
+    std::cout << "\n[TEST] a takes fatal damage (999)\n";
     a.takeDamage(999);
 
-		// Fail due to 0 HP
-    std::cout << "\n[TEST] Attack after death:\n";
-    a.attack("Jerry");
+    std::cout << "\n[TEST] a tries to attack after death\n";
+    a.attack("Ghost");
 
-		// Fail due to 0 HP
-    std::cout << "\n[TEST] Repair after death:\n";
+    std::cout << "\n[TEST] a tries to repair after death\n";
     a.beRepaired(10);
+}
 
+void testClapTrapCopy() {
+    std::cout << "\n[TEST] Copy constructor ClapTrap b(a)\n";
+    ClapTrap a("R2-D2");
+    ClapTrap b(a);
+
+    std::cout << "\n[TEST] Copy assignment ClapTrap c = a\n";
+    ClapTrap c;
+    c = a;
+}
+
+int main() {
+    testClapTrapCopy();
+    testClapTrapBasic();
     return 0;
 }
