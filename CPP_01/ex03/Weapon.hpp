@@ -1,5 +1,5 @@
-#ifndef WEAPON_03_HPP
-#define WEAPON_03_HPP
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <string>
 
@@ -18,4 +18,4 @@ class Weapon {
     std::string m_type;
 };
 
-#endif // WEAPON_03_HPP
+#endif // WEAPON_HPP

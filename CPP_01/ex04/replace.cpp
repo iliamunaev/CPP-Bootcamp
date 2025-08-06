@@ -1,26 +1,26 @@
 #include "replace.hpp"
 
-int findAndReplace(const std::string& fileName, const std::string& str1, const std::string& str2) {
+int findAndReplace(const std::string &fileName, const std::string &str1, const std::string &str2) {
   if (str1.empty()) {
-    std::cout << "Error: Search string cannot be empty.\n";
+    std::cerr << "Error: Search string cannot be empty." << std::endl;
     return 1;
   }
 
   std::ifstream inFile(fileName);
   if (!inFile.is_open()) {
-    std::cout << "Error: Could not open input file '" << fileName << "'\n";
+    std::cerr << "Error: Could not open input file '" << fileName << "'" << std::endl;
     return 1;
   }
 
   std::ofstream outFile(fileName + ".replace");
   if (!outFile.is_open()) {
-    std::cout << "Error: Could not create output file '" << fileName << ".replace'\n";
+    std::cerr << "Error: Could not create output file '" << fileName << ".replace'" << std::endl;
     return 1;
   }
 
   // Handle empty file
   if (inFile.peek() == std::ifstream::traits_type::eof()) {
-    std::cout << "Error: Input file is empty.\n";
+    std::cerr << "Error: Input file is empty." << std::endl;
     inFile.close();
     outFile.close();
     return 1;
@@ -40,6 +40,7 @@ int findAndReplace(const std::string& fileName, const std::string& str1, const s
   inFile.close();
   outFile.close();
 
-  std::cout << "Success: cat " << fileName + ".replace\n";
+  std::cout << "Success: cat " << fileName + ".replace" << std::endl;
+
   return 0;
 }

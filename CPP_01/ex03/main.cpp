@@ -4,19 +4,23 @@
 
 int main() {
   {
-    Weapon club = Weapon("crude spiked club");
-    HumanA bob("Bob", club);
-    bob.attack();
-    club.setType("some other type of club");
-    bob.attack();
+    Weapon w = Weapon("Stick");
+    HumanA ivan("Ivan", w);
+    ivan.attack();
+    w.setType("Lollypop");
+    ivan.attack();
   }
   {
-    Weapon club = Weapon("crude spiked club");
-    HumanB jim("Jim");
-    jim.setWeapon(club);
-    jim.attack();
-    club.setType("some other type of club");
-    jim.attack();
+    Weapon w = Weapon("Stick");
+    HumanB ilia("Ilia");
+    ilia.setWeapon(w);
+    ilia.attack();
+    w.setType("Lollypop");
+    ilia.attack();
+  }
+  {
+    HumanB ilon("Ilon");
+    ilon.attack();
   }
   return 0;
 }

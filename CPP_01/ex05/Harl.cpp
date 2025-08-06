@@ -7,7 +7,7 @@ Harl::Harl() {
   m_comments[3] = &Harl::error;
 }
 
-void Harl::complain(const std::string& level) {
+void Harl::complain(const std::string &level) {
   const std::string levels[NUM_LEVELS] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
   for (int i = 0; i < NUM_LEVELS; ++i) {
@@ -17,21 +17,21 @@ void Harl::complain(const std::string& level) {
     }
   }
 
-  std::cout << "Nothing to say\n";
+  std::cout << "Nothing to say" << std::endl;
 }
 
 void Harl::debug(void) {
-  std::cout << "DEBUG: System initialized correctly with default configuration. Continuing with test parameters.\n";
+  std::cout << "DEBUG: System initialized correctly with default configuration. Continuing with test parameters." << std::endl;
 }
 
 void Harl::info(void) {
-  std::cout << "INFO: User successfully logged in. Session token generated and stored.\n";
+  std::cout << "INFO: User successfully logged in. Session token generated and stored." << std::endl;
 }
 
 void Harl::warning(void) {
-  std::cout << "WARNING: Configuration file not found. Falling back to default settings.\n";
+  std::cout << "WARNING: Configuration file not found. Falling back to default settings." << std::endl;
 }
 
 void Harl::error(void) {
-  std::cout << "ERROR: Database connection failed. Unable to retrieve user data.\n";
+  std::cout << "ERROR: Database connection failed. Unable to retrieve user data." << std::endl;
 }

@@ -1,17 +1,17 @@
 #include "Zombie.hpp"
 
-Zombie* zombieHorde(int N, std::string name) {
+Zombie *zombieHorde(int N, std::string name) {
   if (N <= 0) {
-    std::cout << "Invalid zombie count!\n";
+    std::cerr << "Invalid zombie count!" << std::endl;
     return nullptr;
   }
-  
-  Zombie* zh = nullptr;
+
+  Zombie *zh = nullptr;
   try {
     zh = new Zombie[N];
   }
-  catch (const std::bad_alloc& e) {
-    std::cout << "Memory allocation failed\n";
+  catch (const std::bad_alloc &e) {
+    std::cerr << "Memory allocation failed" << std::endl;
     return nullptr;
   }
 

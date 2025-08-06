@@ -1,31 +1,35 @@
 #include "Zombie.hpp"
-#include <iostream>
 
 int main() {
-  std::cout << "[Test 1] Create a horde of 5 zombies named 'Walker'\n\n";
+  std::cout << "[Test 1] Create a horde of zombies named 'R2-D2'\n"
+            << std::endl;
 
   int count = 5;
-  Zombie* horde = zombieHorde(count, "Walker");
+  Zombie *horde = zombieHorde(count, "R2-D2");
 
   if (!horde) {
-    std::cout << "Failed to create zombie horde!\n";
+    std::cerr << "Failed to create zombie horde!" << std::endl;
     return 1;
   }
 
   for (int i = 0; i < count; ++i) {
-    std::cout << "Zombie #" << i << " -> ";
+    std::cout << "Zombie #" << i + 1 << " -> ";
     horde[i].announce();
   }
 
   delete[] horde;
-  std::cout << "\n[Test 1 Complete] Horde destroyed.\n\n";
 
-  std::cout << "[Test 2] Edge case: zero zombies\n\n";
-  Zombie* emptyHorde = zombieHorde(0, "Ghost");
+  std::cout << "\n[Test 1 Complete] Horde destroyed.\n"
+            << std::endl;
+
+  std::cout << "[Test 2] Edge case: zero zombies\n"
+            << std::endl;
+
+  Zombie *emptyHorde = zombieHorde(0, "Ghost");
   if (!emptyHorde) {
-    std::cout << "Correctly handled zero-sized horde.\n";
+    std::cout << "Correctly handled zero-sized horde." << std::endl;
   } else {
-    std::cout << "Unexpected allocation!\n";
+    std::cerr << "Unexpected allocation!" << std::endl;
     delete[] emptyHorde;
   }
 

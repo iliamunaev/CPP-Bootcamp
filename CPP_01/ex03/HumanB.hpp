@@ -1,5 +1,5 @@
-#ifndef HUMAN_B_03_HPP
-#define HUMAN_B_03_HPP
+#ifndef HUMAN_B_HPP
+#define HUMAN_B_HPP
 
 #include "Weapon.hpp"
 
@@ -19,4 +19,4 @@ class HumanB {
     Weapon* m_weapon;
 };
 
-#endif // HUMAN_B_03_HPP
+#endif // HUMAN_B_HPP

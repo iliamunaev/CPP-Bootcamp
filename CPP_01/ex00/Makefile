@@ -1,7 +1,7 @@
 TARGET := Zombie
 
 GXX := c++
-GXXFLAGS := -Wall -Werror -Wextra -Wshadow -g -std=c++17
+GXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
 SRC := main.cpp \
 	Zombie.cpp

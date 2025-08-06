@@ -1,23 +1,22 @@
 #include "replace.hpp"
-#include <iostream>
-#include <fstream>
 #include <cassert>
 
-void createFile(const std::string& filename, const std::string& content) {
+void createFile(const std::string &filename, const std::string &content) {
   std::ofstream file(filename);
   file << content;
   file.close();
 }
 
-void testCase(const std::string& name, int expected, const std::string& file, const std::string& s1, const std::string& s2) {
+void testCase(const std::string &name, int expected, const std::string &file, const std::string &s1, const std::string &s2) {
   std::cout << "[TEST] " << name << "..." << std::endl;
   int result = findAndReplace(file, s1, s2);
   assert(result == expected);
-  std::cout << "Passed.\n\n";
+  std::cout << "Passed.\n"
+            << std::endl;
 }
 
 int main() {
-  std::cout << "--- Running tests ---\n";
+  std::cout << "--- Running tests ---" << std::endl;
 
   // Test 1: File doesn't exist
   testCase("File does not exist", 1, "nonexistent.txt", "a", "b");
@@ -42,6 +41,7 @@ int main() {
   createFile("test_replace.txt", "one two three one two");
   testCase("Normal replacement", 0, "test_replace.txt", "one", "XXXXXX");
 
-  std::cout << "\n--- All tests passed ---\n";
+  std::cout << "\n--- All tests passed ---" << std::endl;
+  
   return 0;
 }

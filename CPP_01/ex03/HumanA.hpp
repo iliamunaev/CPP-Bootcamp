@@ -1,5 +1,5 @@
-#ifndef HUMAN_A_03_HPP
-#define HUMAN_A_03_HPP
+#ifndef HUMAN_A_HPP
+#define HUMAN_A_HPP
 
 #include "Weapon.hpp"
 
@@ -20,4 +20,4 @@ class HumanA {
     Weapon& m_weapon;
 };
 
-#endif // HUMAN_A_03_HPP
+#endif // HUMAN_A_HPP
