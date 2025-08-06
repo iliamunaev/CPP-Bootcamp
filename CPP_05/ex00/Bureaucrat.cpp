@@ -38,3 +38,23 @@ Bureaucrat::GradeTooLowException::GradeTooLowException()
 const char* Bureaucrat::GradeTooLowException::what() const noexcept {
   return m_msg.c_str();
 }
+
+void Bureaucrat::decreaseGrade() {
+    if (m_grade >= 150) {
+        throw Bureaucrat::GradeTooLowException();
+    }
+    ++m_grade;
+}
+
+
+void Bureaucrat::increaseGrade() {
+  if(m_grade <= 1) {
+    throw Bureaucrat::GradeTooHighException();
+  }
+  --m_grade;
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
+    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+    return os;
+}

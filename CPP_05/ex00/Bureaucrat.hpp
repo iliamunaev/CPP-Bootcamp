@@ -12,6 +12,8 @@ class Bureaucrat {
 
     std::string getName() const;
     int getGrade() const;
+    void decreaseGrade();
+    void increaseGrade();
 
     class GradeTooHighException : public std::exception {
       public:
@@ -35,3 +37,5 @@ class Bureaucrat {
     const std::string m_name;
     int m_grade;
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
