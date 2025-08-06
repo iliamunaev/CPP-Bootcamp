@@ -1,6 +1,6 @@
 TARGET := ClapTrap
 
-GXX := c++
+GXX := g++
 GXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
 SRC := main.cpp \
