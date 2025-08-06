@@ -1,5 +1,5 @@
-#ifndef ZOMBIE_00_HPP
-#define ZOMBIE_00_HPP
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <iostream>
 
@@ -20,4 +20,4 @@ class Zombie {
 Zombie* newZombie(std::string name);
 void randomChump(std::string name);
 
-#endif //ZOMBIE_00_HPP
+#endif //ZOMBIE_HPP
