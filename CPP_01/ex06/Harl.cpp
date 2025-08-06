@@ -9,28 +9,30 @@ Harl::Harl() {
 
 void Harl::complain(const std::string &level) {
   const std::string levels[NUM_LEVELS] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+  int i = 0;
 
-  for (int i = 0; i < NUM_LEVELS; ++i) {
-    if (level == levels[i]) {
-      switch (i) {
-        case 0:
-          (this->*m_comments[0])();
-           [[fallthrough]];
-        case 1:
-          (this->*m_comments[1])();
-           [[fallthrough]];
-        case 2:
-          (this->*m_comments[2])();
-           [[fallthrough]];
-        case 3:
-          (this->*m_comments[3])();
-      }
-      return;
-    }
+  while (i < NUM_LEVELS && level != levels[i])
+    ++i;
+
+  switch (i) {
+    case 0:
+      (this->*m_comments[0])();
+      [[fallthrough]];
+    case 1:
+      (this->*m_comments[1])();
+      [[fallthrough]];
+    case 2:
+      (this->*m_comments[2])();
+      [[fallthrough]];
+    case 3:
+      (this->*m_comments[3])();
+      break;
+    default:
+      std::cout << "[ I don't mind what you're talking about... ]" << std::endl;
+      break;
   }
-
-  std::cout << "I don't mind what you're talking about" << std::endl;
 }
+
 
 void Harl::debug(void) {
   std::cout << "DEBUG: System initialized correctly with default configuration. Continuing with test parameters." << std::endl;
