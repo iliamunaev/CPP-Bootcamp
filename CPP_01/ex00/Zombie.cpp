@@ -8,21 +8,7 @@ Zombie::~Zombie(void) {
   std::cout << "Destructor for " << m_name << " called" << std::endl;
 }
 
-Zombie *newZombie(std::string name) {
-  try {
-    return new Zombie(name);
-  }
-  catch (const std::bad_alloc &e) {
-    std::cout << "Error: memory allocation failed" << std::endl;
-    return nullptr;
-  }
-}
-
 void Zombie::announce(void) {
   std::cout << m_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void randomChump(std::string name) {
-  Zombie z(name);
-  z.announce();
-}

@@ -4,7 +4,9 @@ GXX := c++
 GXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
 SRC := main.cpp \
-	Zombie.cpp
+	Zombie.cpp \
+	newZombie.cpp \
+	randomChump.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
