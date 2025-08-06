@@ -20,13 +20,13 @@ bool isInputValid(int argc, char **argv) {
 
   const int numArguments = argc;
   if (!isNumArgumentsValid(numArguments)) {
-    std::cerr << "Validation error: Usage ./Harl <level>" << std::endl;
+    std::cout << "Validation error: Usage ./Harl <level>\n";
     return false;
   }
 
   const std::string level = argv[1];
   if (!isLevelValid(level)) {
-    std::cerr << "Validation error: Choose level `DEBUG`, `INFO`, `WARNING` or `ERROR`" << std::endl;
+    std::cout << "Validation error: Choose level `DEBUG`, `INFO`, `WARNING` or `ERROR`\n";
     return false;
   }
 

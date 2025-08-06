@@ -1,15 +1,15 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie() : m_name("Default") {
-  std::cout << "Default Constructor called" << std::endl;
+  std::cout << "Default Constructor called\n";
 }
 
 Zombie::Zombie(std::string name) : m_name(name) {
-  std::cout << "Constructor for " << m_name << " called" << std::endl;
+  std::cout << "Constructor for " << m_name << " called\n";
 }
 
 Zombie::~Zombie(void) {
-    std::cout << "Destructor for " << m_name << " called" << std::endl;
+    std::cout << "Destructor for " << m_name << " called\n";
 }
 
 Zombie* newZombie(std::string name) {
@@ -17,13 +17,13 @@ Zombie* newZombie(std::string name) {
     return new Zombie(name);
   }
   catch (const std::bad_alloc& e) {
-    std::cerr << "Error: memory allocation failed\n";
+    std::cout << "Error: memory allocation failed\n";
     return nullptr;
   }
 }
 
 void Zombie::announce(void) {
-  std::cout << m_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+  std::cout << m_name << ": BraiiiiiiinnnzzzZ...\n";
 }
 
 void randomChump(std::string name) {

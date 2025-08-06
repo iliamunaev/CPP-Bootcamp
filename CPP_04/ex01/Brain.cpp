@@ -1,15 +1,15 @@
 #include "Brain.hpp"
 
 Brain::Brain() {
-  std::cout << "Brain Default constructor is strted" << std::endl;
+  std::cout << "Brain Default constructor is strted\n";
 }
 
 Brain::~Brain() {
-  std::cout << "Brain Destructor is strted" << std::endl;
+  std::cout << "Brain Destructor is strted\n";
 }
 
 Brain::Brain(const Brain& other) : ideas( other.ideas) {
-  std::cout << "Brain Copy constructor is started" << std::endl;
+  std::cout << "Brain Copy constructor is started\n";
 }
 
 Brain& Brain::operator=(const Brain& other) {
@@ -37,8 +37,8 @@ void Brain::setIdea(int i, const std::string& idea) {
   if (i >= 0 && i < NUM_IDEAS) {
     ideas[i] = idea;
   } else if (i < 0) {
-    std::cout << "Brain: mmm... you're tryint to reach Subconciouse" << std::endl;
+    std::cout << "Brain: mmm... you're tryint to reach Subconciouse\n";
   } else {
-    std::cout << "Brain: I'm not too smart to have so many ideas..." << std::endl;
+    std::cout << "Brain: I'm not too smart to have so many ideas...\n";
   }
 }

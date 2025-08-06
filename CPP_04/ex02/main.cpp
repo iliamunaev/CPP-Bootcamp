@@ -48,19 +48,19 @@ void testDogDeepCopy() {
 
     {
         Dog deepDog = d; // Copy constructor (Deep copy)
-        std::cout << "Inside deepDog - deepDog idea[0]: " << deepDog.getBrain().getIdea(0) << std::endl;
-        std::cout << "Inside deepDog - deepDog idea[1]: " << deepDog.getBrain().getIdea(1) << std::endl;
+        std::cout << "Inside deepDog - deepDog idea[0]: " << deepDog.getBrain().getIdea(0) << "\n";
+        std::cout << "Inside deepDog - deepDog idea[1]: " << deepDog.getBrain().getIdea(1) << "\n";
 
         deepDog.getBrain().setIdea(0, "I hate cats.");
-        std::cout << "Modified deepDog idea[0] to: " << deepDog.getBrain().getIdea(0) << std::endl;
+        std::cout << "Modified deepDog idea[0] to: " << deepDog.getBrain().getIdea(0) << "\n";
 
-        std::cout << "Inside deepDog - deepDog idea[0]: " << deepDog.getBrain().getIdea(0) << std::endl;
+        std::cout << "Inside deepDog - deepDog idea[0]: " << deepDog.getBrain().getIdea(0) << "\n";
 
     }
 
     // After deepDog is destroyed, d should still have its own Brain
-    std::cout << "After deepDog - d idea[0]: " << d.getBrain().getIdea(0) << std::endl;
-    std::cout << "After deepDog - d idea[1]: " << d.getBrain().getIdea(1) << std::endl;
+    std::cout << "After deepDog - d idea[0]: " << d.getBrain().getIdea(0) << "\n";
+    std::cout << "After deepDog - d idea[1]: " << d.getBrain().getIdea(1) << "\n";
 }
 
 void testCopyConstructor() {
@@ -72,19 +72,19 @@ void testCopyConstructor() {
 
     Dog d2(d1);
 
-    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(0) << std::endl;
-    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(0) << std::endl;
-    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(1) << std::endl;
-    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(1) << std::endl;
+    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(0) << "\n";
+    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(0) << "\n";
+    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(1) << "\n";
+    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(1) << "\n";
 
     // d1 is unaffected
     d2.getBrain().setIdea(0, "I hate cats");
 
-    std::cout << "After modification:" << std::endl;
-    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(0) << std::endl;
-    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(0) << std::endl;
-    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(1) << std::endl;
-    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(1) << std::endl;
+    std::cout << "After modification:\n";
+    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(0) << "\n";
+    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(0) << "\n";
+    std::cout << "d1 Idea[0]: " << d1.getBrain().getIdea(1) << "\n";
+    std::cout << "d2 Idea[0]: " << d2.getBrain().getIdea(1) << "\n";
 }
 
 

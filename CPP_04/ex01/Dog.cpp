@@ -1,20 +1,20 @@
 #include "Dog.hpp"
 
 Dog::Dog() : Animal("Dog"), brain(new Brain()) {
-  std::cout << "Dog Default constructor is started" << std::endl;
+  std::cout << "Dog Default constructor is started\n";
 }
 
 Dog::~Dog() {
   delete brain;
-  std::cout << "Dog Destructor is started" << std::endl;
+  std::cout << "Dog Destructor is started\n";
 }
 
 Dog::Dog(const Dog& other) : Animal(other), brain(new Brain(*other.brain)) {
-  std::cout << "Dog Copy constructor is started" << std::endl;
+  std::cout << "Dog Copy constructor is started\n";
 }
 
 Dog& Dog::operator=(const Dog& other) {
-  std::cout << "Dog Copy assignment operator is started" << std::endl;
+  std::cout << "Dog Copy assignment operator is started\n";
 
   if (this != &other) {
     Animal::operator=(other);
@@ -25,7 +25,7 @@ Dog& Dog::operator=(const Dog& other) {
 }
 
 void Dog::makeSound(void) const {
-  std::cout << "Woof! I'm Dog!" << std::endl;
+  std::cout << "Woof! I'm Dog!\n";
 }
 
 std::string Dog::getType(void) const {

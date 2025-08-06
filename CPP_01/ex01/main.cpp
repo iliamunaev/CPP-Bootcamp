@@ -2,13 +2,13 @@
 #include <iostream>
 
 int main() {
-  std::cout << "[Test 1] Create a horde of 5 zombies named 'Walker'\n" << std::endl;
+  std::cout << "[Test 1] Create a horde of 5 zombies named 'Walker'\n\n";
 
   int count = 5;
   Zombie* horde = zombieHorde(count, "Walker");
 
   if (!horde) {
-    std::cerr << "Failed to create zombie horde!" << std::endl;
+    std::cout << "Failed to create zombie horde!\n";
     return 1;
   }
 
@@ -18,14 +18,14 @@ int main() {
   }
 
   delete[] horde;
-  std::cout << "\n[Test 1 Complete] Horde destroyed.\n" << std::endl;
+  std::cout << "\n[Test 1 Complete] Horde destroyed.\n\n";
 
-  std::cout << "[Test 2] Edge case: zero zombies\n" << std::endl;
+  std::cout << "[Test 2] Edge case: zero zombies\n\n";
   Zombie* emptyHorde = zombieHorde(0, "Ghost");
   if (!emptyHorde) {
-    std::cout << "Correctly handled zero-sized horde." << std::endl;
+    std::cout << "Correctly handled zero-sized horde.\n";
   } else {
-    std::cerr << "Unexpected allocation!" << std::endl;
+    std::cout << "Unexpected allocation!\n";
     delete[] emptyHorde;
   }
 

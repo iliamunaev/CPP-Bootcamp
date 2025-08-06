@@ -17,21 +17,21 @@ void Harl::complain(const std::string& level) {
     }
   }
 
-  std::cout << "Nothing to say" << std::endl;
+  std::cout << "Nothing to say\n";
 }
 
 void Harl::debug(void) {
-  std::cout << "DEBUG: System initialized correctly with default configuration. Continuing with test parameters." << std::endl;
+  std::cout << "DEBUG: System initialized correctly with default configuration. Continuing with test parameters.\n";
 }
 
 void Harl::info(void) {
-  std::cout << "INFO: User successfully logged in. Session token generated and stored." << std::endl;
+  std::cout << "INFO: User successfully logged in. Session token generated and stored.\n";
 }
 
 void Harl::warning(void) {
-  std::cout << "WARNING: Configuration file not found. Falling back to default settings." << std::endl;
+  std::cout << "WARNING: Configuration file not found. Falling back to default settings.\n";
 }
 
 void Harl::error(void) {
-  std::cout << "ERROR: Database connection failed. Unable to retrieve user data." << std::endl;
+  std::cout << "ERROR: Database connection failed. Unable to retrieve user data.\n";
 }

@@ -1,6 +1,6 @@
 TARGET := Brain
 
-GXX := g++
+GXX := c++
 GXXFLAGS := -Wall -Werror -Wextra -Wshadow -g -std=c++17
 
 SRC := main.cpp

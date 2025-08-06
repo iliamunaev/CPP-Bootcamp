@@ -13,9 +13,9 @@ int main(void) {
     c = b;  // c is assigned from b
 
     std::cout << "\n[RESULTS] Raw bits comparison:\n";
-    std::cout << "a.getRawBits(): " << a.getRawBits() << std::endl;
-    std::cout << "b.getRawBits(): " << b.getRawBits() << std::endl;
-    std::cout << "c.getRawBits(): " << c.getRawBits() << std::endl;
+    std::cout << "a.getRawBits(): " << a.getRawBits() << "\n";
+    std::cout << "b.getRawBits(): " << b.getRawBits() << "\n";
+    std::cout << "c.getRawBits(): " << c.getRawBits() << "\n";
 
     return 0;
 }

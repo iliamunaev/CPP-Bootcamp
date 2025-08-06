@@ -33,8 +33,8 @@ int main() {
   const WrongAnimal* wAnimal = new WrongAnimal();
   const WrongAnimal* wCat = new WrongCat();
 
-  std::cout << "Type: " << wAnimal->getType() << std::endl;
-  std::cout << "Type: " << wCat->getType() << std::endl;
+  std::cout << "Type: " << wAnimal->getType() << "\n";
+  std::cout << "Type: " << wCat->getType() << "\n";
 
   wAnimal->makeSound();
   wCat->makeSound();
@@ -57,7 +57,7 @@ int main() {
 
   Dog dog;
   Animal sliced = dog;  // Slicing occurs
-  std::cout << "Sliced.getType(): " << sliced.getType() << std::endl;
+  std::cout << "Sliced.getType(): " << sliced.getType() << "\n";
   sliced.makeSound(); // Calls Animal::makeSound(), not Dog’s
 
   separator("Stack Allocation & Destruction");

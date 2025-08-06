@@ -2,7 +2,7 @@
 
 Zombie* zombieHorde(int N, std::string name) {
   if (N <= 0) {
-    std::cerr << "Invalid zombie count!\n";
+    std::cout << "Invalid zombie count!\n";
     return nullptr;
   }
   
@@ -11,7 +11,7 @@ Zombie* zombieHorde(int N, std::string name) {
     zh = new Zombie[N];
   }
   catch (const std::bad_alloc& e) {
-    std::cerr << "Memory allocation failed\n";
+    std::cout << "Memory allocation failed\n";
     return nullptr;
   }
 

@@ -25,7 +25,7 @@ void PhoneBook::searchContact(void) {
   std::getline(std::cin, input);
 
   if (input.empty() || !isNumber(input)) {
-      std::cout << "Invalid index. Only numbers are acceptable." << std::endl;
+      std::cout << "Invalid index. Only numbers are acceptable.\n";
       return;
   }
 

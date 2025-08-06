@@ -10,16 +10,16 @@ int main(void) {
     a = Fixed(1234.4321f);      // assignment from float temporary
 
     std::cout << "\n[VALUES - toFloat() via overloaded << operator]\n";
-    std::cout << "a = " << a << std::endl;
-    std::cout << "b = " << b << std::endl;
-    std::cout << "c = " << c << std::endl;
-    std::cout << "d = " << d << std::endl;
+    std::cout << "a = " << a << "\n";
+    std::cout << "b = " << b << "\n";
+    std::cout << "c = " << c << "\n";
+    std::cout << "d = " << d << "\n";
 
     std::cout << "\n[VALUES - toInt() conversion]\n";
-    std::cout << "a = " << a.toInt() << " (as int)" << std::endl;
-    std::cout << "b = " << b.toInt() << " (as int)" << std::endl;
-    std::cout << "c = " << c.toInt() << " (as int)" << std::endl;
-    std::cout << "d = " << d.toInt() << " (as int)" << std::endl;
+    std::cout << "a = " << a.toInt() << " (as int)\n";
+    std::cout << "b = " << b.toInt() << " (as int)\n";
+    std::cout << "c = " << c.toInt() << " (as int)\n";
+    std::cout << "d = " << d.toInt() << " (as int)\n";
 
     return 0;
 }

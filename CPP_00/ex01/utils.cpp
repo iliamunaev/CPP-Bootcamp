@@ -3,7 +3,7 @@
 void signalHandler(int signal) {
   if (signal == SIGINT)
   {
-    std::cout << "\nProgram interrupted. Exiting ..." << std::endl;
+    std::cout << "\nProgram interrupted. Exiting ...\n";
     std::exit(0);
   }
 }
@@ -19,14 +19,14 @@ bool isNumber(const std::string &str)
 
 void handleInterruption(bool status) {
   if (!status) {
-    std::cout << "\nInput interrupted. Exiting..." << std::endl;
+    std::cout << "\nInput interrupted. Exiting...\n";
     std::exit(0);
   }
 }
 
 std::string promptUser() {
   std::string prompt;
-  std::cout << "Enter command (ADD, SEARCH, EXIT): " << std::endl;
+  std::cout << "Enter command (ADD, SEARCH, EXIT): \n";
   std::cout << "> ";
 
   if (!std::getline(std::cin, prompt)) {
@@ -37,10 +37,10 @@ std::string promptUser() {
 }
 
 void invalidInpit() {
-  std::cout << "Invalide input:" << std::endl;
-  std::cout << "  'ADD' : save a new contact" << std::endl;
-  std::cout << "  'SEARCH' : display a specific contact" << std::endl;
-  std::cout << "  'EXIT'   : quit the program" << std::endl;
+  std::cout << "Invalide input:\n";
+  std::cout << "  'ADD' : save a new contact\n";
+  std::cout << "  'SEARCH' : display a specific contact\n";
+  std::cout << "  'EXIT'   : quit the program\n";
 }
 
 std::string getUserData(const std::string &field)
@@ -62,5 +62,5 @@ std::string getUserData(const std::string &field)
 }
 
 void endProgram() {
-  std::cout << "Exiting program..." << std::endl;
+  std::cout << "Exiting program...\n";
 }

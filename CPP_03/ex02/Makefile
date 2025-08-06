@@ -1,6 +1,6 @@
 TARGET := FragTrap
 
-GXX := g++
+GXX := c++
 GXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
 SRC := main.cpp \
