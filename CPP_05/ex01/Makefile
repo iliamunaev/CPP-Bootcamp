@@ -1,10 +1,11 @@
-TARGET := Bureaucrat
+TARGET := Form
 
 CXX := c++
 CXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
 SRC := main.cpp \
-		Bureaucrat.cpp
+		Bureaucrat.cpp \
+		Form.cpp
 
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
