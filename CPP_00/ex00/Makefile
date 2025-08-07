@@ -1,4 +1,4 @@
-TARGET = megaphone
+NAME = megaphone
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
@@ -6,10 +6,10 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 SRCS = megaphone.cpp
 OBJS = megaphone.o
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $(SRCS) -o $(OBJS)
@@ -18,7 +18,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all
 

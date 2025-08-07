@@ -1,4 +1,4 @@
-TARGET = PhoneBook
+NAME = PhoneBook
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++17
@@ -15,10 +15,10 @@ OBJS := $(OBJDIR)/main.o \
 		$(OBJDIR)/PhoneBook.o \
 		$(OBJDIR)/Contact.o
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 $(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -31,7 +31,7 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all
 

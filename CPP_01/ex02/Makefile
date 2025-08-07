@@ -1,4 +1,4 @@
-TARGET := Brain
+NAME := Brain
 
 CXX := c++
 CXXFLAGS := -Wall -Werror -Wextra -std=c++17
@@ -8,9 +8,9 @@ SRC := main.cpp
 OBJDIR := obj
 OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJ)
+$(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # Compile .cpp to obj/*.o
@@ -22,7 +22,7 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all
 

@@ -1,4 +1,4 @@
-TARGET = run_test
+NAME = run_test
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++17
@@ -11,10 +11,10 @@ OBJDIR := obj
 OBJS := $(OBJDIR)/Account.o \
 		$(OBJDIR)/tests.o
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 $(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -27,7 +27,7 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all
 

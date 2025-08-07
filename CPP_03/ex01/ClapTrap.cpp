@@ -33,17 +33,17 @@ ClapTrap::~ClapTrap() {
   std::cout << "ClapTrap Destructor for " << name << " called\n";
 }
 
-void ClapTrap::attack(const std::string &target) {
+void ClapTrap::attack(const std::string &NAME) {
   if (hitPoints <= 0) {
     std::cout << "[ATTACK] ClapTrap " << name << " is already dead and cannot attack!\n";
   } else if (energyPoints <= 0) {
     std::cout << "[ATTACK] ClapTrap " << name << " has no energy to attack!\n";
   } else {
-    if (target.empty()) {
-      std::cout << "[ATTACK] ClapTrap " << name << " attacks an unknown target"
+    if (NAME.empty()) {
+      std::cout << "[ATTACK] ClapTrap " << name << " attacks an unknown NAME"
                 << ", causing " << attackDamage << " points of damage!\n";
     } else {
-      std::cout << "[ATTACK] ClapTrap " << name << " attacks " << target
+      std::cout << "[ATTACK] ClapTrap " << name << " attacks " << NAME
                 << ", causing " << attackDamage << " points of damage!\n";
     }
     --energyPoints;
