@@ -1,7 +1,7 @@
 TARGET := Brain
 
-GXX := g++
-GXXFLAGS := -Wall -Werror -Wextra -std=c++17
+CXX := c++
+CXXFLAGS := -Wall -Werror -Wextra -std=c++17
 
 SRC := main.cpp
 
@@ -11,12 +11,12 @@ OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(GXX) $(GXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # Compile .cpp to obj/*.o
 $(OBJDIR)/%.o: %.cpp
 	@mkdir -p $(OBJDIR)
-	$(GXX) $(GXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJDIR)
