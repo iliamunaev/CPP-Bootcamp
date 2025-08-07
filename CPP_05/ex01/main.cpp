@@ -79,6 +79,7 @@ int main() {
     std::cout << "Success: " << f << "\n";
   } catch (std::exception& e) {
     std::cout << "Caught exception: " << e.what() << "\n";
+
   }
 
   std::cout << "\n[TEST]: beSigned lower lavel\n";
@@ -88,6 +89,7 @@ int main() {
     f.beSigned(b);
     std::cout << "Success: " << b << "\n";
     std::cout << "Success: " << f << "\n";
+
   } catch (std::exception& e) {
     std::cout << "Caught exception: " << e.what() << "\n";
   }
@@ -99,6 +101,24 @@ int main() {
     f.beSigned(b);
     std::cout << "Success: " << b << "\n";
     std::cout << "Success: " << f << "\n";
+  } catch (std::exception& e) {
+    std::cout << "Caught exception: " << e.what() << "\n";
+  }
+
+  std::cout << "\n[TEST]: signForm lower lavel\n";
+  try {
+    Bureaucrat b ("Ilia", 2);
+    Form f("Form", 3, 1);
+    b.signForm(f);
+  } catch (std::exception& e) {
+    std::cout << "Caught exception: " << e.what() << "\n";
+  }
+
+  std::cout << "\n[TEST]: signForm higher lavel\n";
+  try {
+    Bureaucrat b ("Ilia", 2);
+    Form f("Form", 1, 1);
+    b.signForm(f);
   } catch (std::exception& e) {
     std::cout << "Caught exception: " << e.what() << "\n";
   }

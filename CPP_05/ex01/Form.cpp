@@ -32,14 +32,14 @@ bool Form::getIsSigned() const {
 
 // Exceptions
 Form::GradeTooHighException::GradeTooHighException()
-  : m_msg("Error: grade is too high") {}
+  : m_msg("Error: grade is too high.") {}
 
   const char* Form::GradeTooHighException::what() const noexcept {
   return m_msg.c_str();
 }
 
 Form::GradeTooLowException::GradeTooLowException()
-  : m_msg("Error: grade is too low") {}
+  : m_msg("Error: grade is too low.") {}
 
   const char* Form::GradeTooLowException::what() const noexcept {
   return m_msg.c_str();
@@ -69,6 +69,6 @@ void Form::beSigned(const Bureaucrat& b) {
     }
   } else {
       throw Form::GradeTooLowException();
-  }
+    }
 }
 

@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+class Form;
+
 class Bureaucrat {
   public:
     Bureaucrat() = delete;
@@ -14,6 +16,7 @@ class Bureaucrat {
     int getGrade() const;
     void decreaseGrade();
     void increaseGrade();
+    void signForm(Form& f) const;
 
     class GradeTooHighException : public std::exception {
       public:
