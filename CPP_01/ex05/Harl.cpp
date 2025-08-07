@@ -17,7 +17,7 @@ void Harl::complain(const std::string &level) {
     }
   }
 
-  std::cout << "Nothing to say" << std::endl;
+  std::cout << "[ I don't mind what you're talking about... ]" << std::endl;
 }
 
 void Harl::debug(void) {
