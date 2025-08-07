@@ -6,17 +6,17 @@ class Bureaucrat;
 
 class AForm {
   public:
-    AForm() = delete;
-    AForm(const AForm& other) = delete;
-    AForm& operator=(const AForm& other) = delete;
+    AForm();
+    AForm(const AForm& other);
+    AForm& operator=(const AForm& other);
     AForm(const std::string& name, const int gradeToSign, const int gradeToExecute);
     ~AForm();
 
-    std::string getName() const;
-    int getGradeToSign() const;
-    int getGradeToExecute() const;
-    bool getIsSigned() const;
-    void beSigned(const Bureaucrat& b);
+    virtual std::string getName() const;
+    virtual int getGradeToSign() const;
+    virtual int getGradeToExecute() const;
+    virtual bool getIsSigned() const;
+    virtual void beSigned(const Bureaucrat& b) = 0;
 
     class GradeTooHighException : public std::exception {
       public:
@@ -36,7 +36,7 @@ class AForm {
         const std::string m_msg;
     };
 
-  private:
+  protected:
     const std::string m_name;
     bool m_isSigned; // false default
     int m_gradeToSign;
