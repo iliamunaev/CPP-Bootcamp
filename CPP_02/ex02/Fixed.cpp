@@ -1,19 +1,39 @@
+/*
+*  Fixed.cpp
+*
+*  By: Ilia Munaev ilyamunaev@gmail.com
+*  LinkedIn: https://www.linkedin.com/in/iliamunaev/
+*
+*  Created: 2025-08-07
+*  Updated: 2025-08-07
+*/
+
 #include "Fixed.hpp"
 
-Fixed::Fixed() : m_RawBits(0) {
+// Internal Helper Function
+static int clampToInt32(int64_t value) {
+  if (value > INT32_MAX) {
+    return INT32_MAX;
+  }
+  if (value < INT32_MIN) {
+    return INT32_MIN;
+  }
+  return static_cast<int>(value);
+}
+
+// Constructors / Destructor
+Fixed::Fixed() : m_FixedPointNum(0) {
   std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const Fixed& other) : m_RawBits(other.m_RawBits) {
+Fixed::Fixed(const Fixed& other) : m_FixedPointNum(other.m_FixedPointNum) {
   std::cout << "Copy constructor called\n";
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
   std::cout << "Copy assignment operator called\n";
-
-  if (this != &other) {
-    this->m_RawBits = other.m_RawBits;
-  }
+  if (this != &other)
+    m_FixedPointNum = other.m_FixedPointNum;
   return *this;
 }
 
@@ -21,92 +41,74 @@ Fixed::~Fixed() {
   std::cout << "Destructor called\n";
 }
 
+Fixed::Fixed(const int i) {
+  std::cout << "Int constructor called\n";
+  int64_t tmp = static_cast<int64_t>(i) << m_FractionalBits;
+  m_FixedPointNum = clampToInt32(tmp);
+}
+
+Fixed::Fixed(const float f) {
+  std::cout << "Float constructor called\n";
+  int64_t tmp = static_cast<int64_t>(roundf(f * (1 << m_FractionalBits)));
+  m_FixedPointNum = clampToInt32(tmp);
+}
+
+// Getters / Setters
 int Fixed::getRawBits(void) const {
   std::cout << "getRawBits member function called\n";
-
-  return m_RawBits;
+  return m_FixedPointNum;
 }
 
 void Fixed::setRawBits(int const raw) {
   std::cout << "setRawBits member function called\n";
-
-  m_RawBits = raw;
+  m_FixedPointNum = raw;
 }
 
-Fixed::Fixed(const int i) : m_RawBits(i << m_FractionalBits) {
-  std::cout << "Int constructor called\n";
-}
-
-Fixed::Fixed(const float f) :
-  m_RawBits(static_cast<int>(roundf(f * (1 << m_FractionalBits)))) {
-  std::cout << "Float constructor called\n";
-}
-
+// Converters
 int Fixed::toInt(void) const {
-  return m_RawBits >> m_FractionalBits;
+  return m_FixedPointNum >> m_FractionalBits;
 }
 
 float Fixed::toFloat(void) const {
-  return static_cast<float>(m_RawBits) / (1 << m_FractionalBits);
+  return static_cast<float>(m_FixedPointNum) / (1 << m_FractionalBits);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-    os << fixed.toFloat();
-    return os;
+  os << fixed.toFloat();
+  return os;
 }
 
-// ---------- Comparision operators (>, <, >=, <=, ==, !=)---------- //
+// Comparison Operators
 bool Fixed::operator>(const Fixed& other) const {
-  return this->m_RawBits > other.m_RawBits;
+  return this->m_FixedPointNum > other.m_FixedPointNum;
 }
 
 bool Fixed::operator<(const Fixed& other) const {
-  return this->m_RawBits < other.m_RawBits;
+  return this->m_FixedPointNum < other.m_FixedPointNum;
 }
 
 bool Fixed::operator>=(const Fixed& other) const {
-  return this->m_RawBits >= other.m_RawBits;
+  return this->m_FixedPointNum >= other.m_FixedPointNum;
 }
 
 bool Fixed::operator<=(const Fixed& other) const {
-  return this->m_RawBits <= other.m_RawBits;
+  return this->m_FixedPointNum <= other.m_FixedPointNum;
 }
 
 bool Fixed::operator==(const Fixed& other) const {
-  return this->m_RawBits == other.m_RawBits;
+  return this->m_FixedPointNum == other.m_FixedPointNum;
 }
 
 bool Fixed::operator!=(const Fixed& other) const {
-  return this->m_RawBits != other.m_RawBits;
+  return this->m_FixedPointNum != other.m_FixedPointNum;
 }
 
-// ---------- Overflow validation ---------- //
-bool isOverflow(int64_t num) {
-  return num > INT32_MAX || num < INT32_MIN;
-}
-
-int assignEdgeValue(int64_t num) {
-  if (num > INT32_MAX) {
-    return INT32_MAX;
-  } else {
-    return INT32_MIN;
-  }
-}
-
-int setValueValidated(int64_t num) {
-  if (isOverflow(num)) {
-    return assignEdgeValue(num);
-  } else {
-    return static_cast<int>(num);
-  }
-}
-
-// ---------- Arithmetic operators (+, -, *, /) ---------- //
+// Arithmetic Operators
 Fixed Fixed::operator+(const Fixed& other) const {
   Fixed result;
 
-  int64_t temp = static_cast<int64_t>(this->m_RawBits + other.m_RawBits);
-  result.setRawBits(setValueValidated(temp));
+  int64_t temp = static_cast<int64_t>(this->m_FixedPointNum) + other.m_FixedPointNum;
+  result.setRawBits(clampToInt32(temp));
 
   return result;
 }
@@ -114,8 +116,8 @@ Fixed Fixed::operator+(const Fixed& other) const {
 Fixed Fixed::operator-(const Fixed& other) const {
   Fixed result;
 
-  int64_t temp = static_cast<int64_t>(this->m_RawBits - other.m_RawBits);
-  result.setRawBits(setValueValidated(temp));
+  int64_t temp = static_cast<int64_t>(this->m_FixedPointNum) - other.m_FixedPointNum;
+  result.setRawBits(clampToInt32(temp));
 
   return result;
 }
@@ -123,8 +125,8 @@ Fixed Fixed::operator-(const Fixed& other) const {
 Fixed Fixed::operator*(const Fixed& other) const {
   Fixed result;
 
-  int64_t temp = (static_cast<int64_t>(this->m_RawBits) * other.m_RawBits) >> m_FractionalBits;
-  result.setRawBits(setValueValidated(temp));
+  int64_t temp = (static_cast<int64_t>(this->m_FixedPointNum) * other.m_FixedPointNum) >> m_FractionalBits;
+  result.setRawBits(clampToInt32(temp));
 
   return result;
 }
@@ -132,46 +134,49 @@ Fixed Fixed::operator*(const Fixed& other) const {
 Fixed Fixed::operator/(const Fixed& other) const {
   Fixed result;
 
-  int64_t temp = (static_cast<int64_t>(this->m_RawBits) << m_FractionalBits) / other.m_RawBits;
-  result.setRawBits(setValueValidated(temp));
+  int64_t temp = (static_cast<int64_t>(this->m_FixedPointNum) << m_FractionalBits) / other.m_FixedPointNum;
+  result.setRawBits(clampToInt32(temp));
 
   return result;
 }
 
-// ---------- Increment, decrement operators (++a, a++, --a, a--) ---------- //
-
-// pre-increment ++a
+// Increment / Decrement
 Fixed& Fixed::operator++() {
-  m_RawBits = setValueValidated(static_cast<int64_t>(this->m_RawBits + 1));
+  m_FixedPointNum = clampToInt32(static_cast<int64_t>(m_FixedPointNum) + 1);
 
   return *this;
 }
 
-// post-increment a++
 Fixed Fixed::operator++(int) {
-  Fixed prevFixed = *this;
-  operator++();
+  Fixed prev = *this;
+  ++(*this);
 
-  return prevFixed;
+  return prev;
 }
 
-// pre-decrement --a
 Fixed& Fixed::operator--() {
-  m_RawBits = setValueValidated(static_cast<int64_t>(this->m_RawBits - 1));
+  m_FixedPointNum = clampToInt32(static_cast<int64_t>(m_FixedPointNum) - 1);
 
   return *this;
 }
 
-// post-decrement a--
 Fixed Fixed::operator--(int) {
-  Fixed prevFixed = *this;
-  operator--();
+  Fixed prev = *this;
+  --(*this);
 
-  return prevFixed;
+  return prev;
 }
 
-// ---------- min(), max() ---------- //
+// min() / max()
 Fixed& Fixed::min(Fixed& a, Fixed& b) {
+  if (a < b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
   if (a < b) {
     return a;
   } else {
@@ -181,14 +186,6 @@ Fixed& Fixed::min(Fixed& a, Fixed& b) {
 
 Fixed& Fixed::max(Fixed& a, Fixed& b) {
   if (a > b) {
-    return a;
-  } else {
-    return b;
-  }
-}
-
-const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
-  if (a < b) {
     return a;
   } else {
     return b;

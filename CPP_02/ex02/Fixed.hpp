@@ -1,5 +1,15 @@
-#ifndef FIXED_02_HPP
-#define FIXED_02_HPP
+/*
+*  Fixed.hpp
+*
+*  By: Ilia Munaev ilyamunaev@gmail.com
+*  LinkedIn: https://www.linkedin.com/in/iliamunaev/
+*
+*  Created: 2025-08-07
+*  Updated: 2025-08-07
+*/
+
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 #include <cstdint>
@@ -42,11 +52,11 @@ class Fixed {
     static const Fixed& max(const Fixed& a, const Fixed& b);
 
   private:
-    static constexpr int m_FractionalBits = 8;
-    int m_RawBits;
+    static const int m_FractionalBits = 8;
+    int m_FixedPointNum;
 };
 
 // Stream output overload
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed);
 
-#endif // FIXED_02_HPP
+#endif // FIXED_HPP
