@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "Bureaucrat.hpp"
+
 class Form {
   public:
     Form() = delete;
@@ -14,6 +16,7 @@ class Form {
     int getGradeToSign() const;
     int getGradeToExecute() const;
     bool getIsSigned() const;
+    void beSigned(const Bureaucrat& b);
 
     class GradeTooHighException : public std::exception {
       public:
