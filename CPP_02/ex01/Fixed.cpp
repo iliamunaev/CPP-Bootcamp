@@ -10,6 +10,17 @@
 
 #include "Fixed.hpp"
 
+// Internal Helper Function
+static int clampToInt32(int64_t value) {
+  if (value > INT32_MAX) {
+    return INT32_MAX;
+  }
+  if (value < INT32_MIN) {
+    return INT32_MIN;
+  }
+  return static_cast<int>(value);
+}
+
 // Constructors / Destructor
 Fixed::Fixed() : m_FixedPointNum(0) {
   std::cout << "Default constructor called\n";
@@ -75,13 +86,3 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     return os;
 }
 
-// Internal Helper Function
-static int clampToInt32(int64_t value) {
-  if (value > INT32_MAX) {
-    return INT32_MAX;
-  }
-  if (value < INT32_MIN) {
-    return INT32_MIN;
-  }
-  return static_cast<int>(value);
-}
