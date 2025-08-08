@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 
+// Constructors / Destructor
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : m_name(name) {
   if (grade < 1) {
     throw Bureaucrat::GradeTooHighException();
@@ -15,7 +16,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat() {}
 
-// Getters
+// Getters / Setters
 std::string Bureaucrat::getName() const {
   return m_name;
 }
@@ -39,13 +40,13 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept {
   return m_msg.c_str();
 }
 
+// Grade handlers
 void Bureaucrat::decreaseGrade() {
     if (m_grade >= 150) {
         throw Bureaucrat::GradeTooLowException();
     }
     ++m_grade;
 }
-
 
 void Bureaucrat::increaseGrade() {
   if(m_grade <= 1) {
@@ -54,6 +55,7 @@ void Bureaucrat::increaseGrade() {
   --m_grade;
 }
 
+// Operator overloder
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
     os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
     return os;

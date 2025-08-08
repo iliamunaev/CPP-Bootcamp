@@ -7,17 +7,21 @@ SRC := main.cpp \
 		Bureaucrat.cpp
 
 OBJDIR := obj
-OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
+OBJ := $(OBJDIR)/main.o \
+	$(OBJDIR)/Bureaucrat.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-# Compile .cpp to obj/*.o
-$(OBJDIR)/%.o: %.cpp
+$(OBJDIR)/main.o: main.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $(OBJDIR)/main.o
+
+$(OBJDIR)/Bureaucrat.o: Bureaucrat.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c Bureaucrat.cpp -o $(OBJDIR)/Bureaucrat.o
 
 clean:
 	rm -rf $(OBJDIR)
