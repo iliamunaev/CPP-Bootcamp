@@ -7,16 +7,16 @@ class Bureaucrat;
 class AForm {
   public:
     AForm();
-    AForm(const AForm& other);
-    AForm& operator=(const AForm& other);
+    AForm(const AForm& other) = delete;
+    AForm& operator=(const AForm& other) = delete;
     AForm(const std::string& name, const int gradeToSign, const int gradeToExecute);
-    ~AForm();
+    virtual ~AForm();
 
-    virtual std::string getName() const;
-    virtual int getGradeToSign() const;
-    virtual int getGradeToExecute() const;
-    virtual bool getIsSigned() const;
-    virtual void beSigned(const Bureaucrat& b) = 0;
+    std::string getName() const;
+    int getGradeToSign() const;
+    int getGradeToExecute() const;
+    bool getIsSigned() const;
+    void beSigned(const Bureaucrat& b);
 
     class GradeTooHighException : public std::exception {
       public:

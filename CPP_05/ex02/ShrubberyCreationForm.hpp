@@ -2,6 +2,9 @@
 
 #include "AForm.hpp"
 
+#define SCF_SIGN 145
+#define SCF_EXEC 137
+
 class ShrubberyCreationForm : public AForm {
   public:
     ShrubberyCreationForm();

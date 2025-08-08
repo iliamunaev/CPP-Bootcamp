@@ -6,9 +6,6 @@ AForm::AForm()
   : m_name("Default"), m_isSigned(false), 
     m_gradeToSign(0), m_gradeToExecute(0) {}
 
-    
-
-
 
 AForm::AForm(const std::string& name, const int gradeToSign, const int gradeToExecute)
   : m_name(name), m_isSigned(false), m_gradeToSign(gradeToSign), m_gradeToExecute(gradeToExecute) {
