@@ -26,14 +26,14 @@ int Bureaucrat::getGrade() const {
 
 // Exceptions
 Bureaucrat::GradeTooHighException::GradeTooHighException()
-  : m_msg("Error: grade is too high, shoul be more or equal 1") {}
+  : m_msg("Error: grade is too high") {}
 
 const char* Bureaucrat::GradeTooHighException::what() const noexcept {
   return m_msg.c_str();
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException()
-  : m_msg("Error: grade is too low, should be less or equal 150") {}
+  : m_msg("Error: grade is too low") {}
 
 const char* Bureaucrat::GradeTooLowException::what() const noexcept {
   return m_msg.c_str();

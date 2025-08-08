@@ -6,67 +6,66 @@ int main() {
   std::cout << "\n[TEST]: Basics\n";
 
   try {
-    Bureaucrat a("a", 1);
-    std::cout << "Success: " << a << "\n";
-
+    Bureaucrat a("a_1", 1);
+    std::cout  << a << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "a_1: Caught exception: " << e.what() << "\n";
   }
 
   try {
-   Bureaucrat b("b", 150);
-    std::cout << "Success: " << b << "\n";
+   Bureaucrat b("b_150", 150);
+    std::cout << b << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "b_150: Caught exception: " << e.what() << "\n";
   }
 
   try {
-    Bureaucrat c("c", 0);
-        std::cout << "Success: " << c << "\n";
+    Bureaucrat c("c_0", 0);
+        std::cout << c << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "c_0: Caught exception: " << e.what() << "\n";
   }
 
   try {
-    Bureaucrat d("d", 151);
-    std::cout << "Success: " << d << "\n";
+    Bureaucrat d("d_151", 151);
+    std::cout << d << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "d_151: Caught exception: " << e.what() << "\n";
   }
 
   // Tests decreaseGrade() increaseGrade()
   std::cout << "\n[TEST]: decreaseGrade()\n";
   try {
-    Bureaucrat g("g", 1);
-    g.decreaseGrade();
-    std::cout << "Success: " << g << "\n";
+    Bureaucrat f("f_1", 1);
+    f.decreaseGrade();
+    std::cout << f << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "f_1: Caught exception: " << e.what() << "\n";
   }
 
   try {
-    Bureaucrat h("h", 150);
-    h.decreaseGrade();
-    std::cout << "Success: " << h << "\n";
+    Bureaucrat g("g_150", 150);
+    g.decreaseGrade();
+    std::cout << g << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "g_150: Caught exception: " << e.what() << "\n";
   }
 
   std::cout << "\n[TEST]: increaseGrade()\n";
   try {
-    Bureaucrat i("i", 2);
-    i.increaseGrade();
-    std::cout << "Success: " << i << "\n";
+    Bureaucrat h("h_2", 2);
+    h.increaseGrade();
+    std::cout << h << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "h_2: Caught exception: " << e.what() << "\n";
   }
 
   try {
-    Bureaucrat j("j", 1);
-    j.increaseGrade();
-    std::cout << "Success: " << j << "\n";
+    Bureaucrat i("i_1", 1);
+    i.increaseGrade();
+    std::cout << i << "\n";
   } catch (std::exception& e) {
-    std::cout << "Caught exception: " << e.what() << "\n";
+    std::cout << "i_1: Caught exception: " << e.what() << "\n";
   }
 
   return 0;
