@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 // Constructors/Destructors
 Form::Form(const std::string& name, const int gradeToSign, const int gradeToExecute)

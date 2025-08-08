@@ -1,6 +1,13 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+// Operator overloder
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
+    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+    return os;
+}
+
+// Constructors / Destructor
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : m_name(name) {
   if (grade < 1) {
     throw Bureaucrat::GradeTooHighException();
@@ -16,7 +23,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat() {}
 
-// Getters
+// Getters / Setters
 std::string Bureaucrat::getName() const {
   return m_name;
 }
@@ -27,19 +34,20 @@ int Bureaucrat::getGrade() const {
 
 // Exceptions
 Bureaucrat::GradeTooHighException::GradeTooHighException()
-  : m_msg("Error: grade is too high, shoul be more or equal 1") {}
+  : m_msg("Error: grade is too high") {}
 
 const char* Bureaucrat::GradeTooHighException::what() const noexcept {
   return m_msg.c_str();
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException()
-  : m_msg("Error: grade is too low, should be less or equal 150") {}
+  : m_msg("Error: grade is too low") {}
 
 const char* Bureaucrat::GradeTooLowException::what() const noexcept {
   return m_msg.c_str();
 }
 
+// Methods
 void Bureaucrat::decreaseGrade() {
     if (m_grade >= 150) {
         throw Bureaucrat::GradeTooLowException();
@@ -47,17 +55,11 @@ void Bureaucrat::decreaseGrade() {
     ++m_grade;
 }
 
-
 void Bureaucrat::increaseGrade() {
   if(m_grade <= 1) {
     throw Bureaucrat::GradeTooHighException();
   }
   --m_grade;
-}
-
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
-    os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
-    return os;
 }
 
 void Bureaucrat::signForm(Form& f) const {
@@ -69,3 +71,5 @@ void Bureaucrat::signForm(Form& f) const {
               << " because " << e.what() << std::endl;
   }
 }
+
+

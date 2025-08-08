@@ -8,17 +8,26 @@ SRC := main.cpp \
 		Form.cpp
 
 OBJDIR := obj
-OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
+OBJ := $(OBJDIR)/main.o \
+	$(OBJDIR)/Bureaucrat.o \
+	$(OBJDIR)/Form.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-# Compile .cpp to obj/*.o
-$(OBJDIR)/%.o: %.cpp
+$(OBJDIR)/main.o: main.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $(OBJDIR)/main.o
+
+$(OBJDIR)/Bureaucrat.o: Bureaucrat.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c Bureaucrat.cpp -o $(OBJDIR)/Bureaucrat.o
+
+$(OBJDIR)/Form.o: Form.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c Form.cpp -o $(OBJDIR)/Form.o
 
 clean:
 	rm -rf $(OBJDIR)
@@ -28,4 +37,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: $(NAME)
+	./$(NAME)
+
+.PHONY: all clean fclean re run

@@ -1,3 +1,4 @@
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main() {
@@ -72,7 +73,7 @@ int main() {
 
   std::cout << "\n[TEST]: beSigned same lavel\n";
   try {
-    Bureaucrat b ("Ilia", 1);
+    Bureaucrat b("Ilia", 1);
     Form f("Form", 1, 1);
     f.beSigned(b);
     std::cout << "Success: " << b << "\n";
@@ -84,7 +85,7 @@ int main() {
 
   std::cout << "\n[TEST]: beSigned lower lavel\n";
   try {
-    Bureaucrat b ("Ilia", 2);
+    Bureaucrat b("Ilia", 2);
     Form f("Form", 1, 1);
     f.beSigned(b);
     std::cout << "Success: " << b << "\n";
@@ -96,7 +97,7 @@ int main() {
 
   std::cout << "\n[TEST]: beSigned higner lavel\n";
   try {
-    Bureaucrat b ("Ilia", 2);
+    Bureaucrat b("Ilia", 2);
     Form f("Form", 3, 1);
     f.beSigned(b);
     std::cout << "Success: " << b << "\n";
@@ -107,7 +108,7 @@ int main() {
 
   std::cout << "\n[TEST]: signForm lower lavel\n";
   try {
-    Bureaucrat b ("Ilia", 2);
+    Bureaucrat b("Ilia", 2);
     Form f("Form", 3, 1);
     b.signForm(f);
   } catch (std::exception& e) {
@@ -116,7 +117,7 @@ int main() {
 
   std::cout << "\n[TEST]: signForm higher lavel\n";
   try {
-    Bureaucrat b ("Ilia", 2);
+    Bureaucrat b("Ilia", 2);
     Form f("Form", 1, 1);
     b.signForm(f);
   } catch (std::exception& e) {
