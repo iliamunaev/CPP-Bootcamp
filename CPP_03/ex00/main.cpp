@@ -5,35 +5,35 @@ void testClapTrapBasic() {
     std::cout << "\n[TEST] Constructing ClapTrap a(\"Tom\")\n";
     ClapTrap a("Tom");
 
-    std::cout << "\n[TEST] a attacks \"Jerry\"\n";
+    std::cout << "\n[TEST] Tom attacks \"Jerry\"\n";
     a.attack("Jerry");
 
-    std::cout << "\n[TEST] a takes 5 damage\n";
+    std::cout << "\n[TEST] Tom takes 5 damage\n";
     a.takeDamage(5);
 
-    std::cout << "\n[TEST] a repairs 3 HP\n";
+    std::cout << "\n[TEST] Tom repairs 3 HP\n";
     a.beRepaired(3);
 
-    std::cout << "\n[TEST] Drain a's energy points\n";
+    std::cout << "\n[TEST] Drain Tom's energy points\n";
     for (int i = 0; i < 20; ++i)
         a.attack("Neigbour");
 
-    std::cout << "\n[TEST] a tries to repair with 0 EP\n";
+    std::cout << "\n[TEST] Tom tries to repair with 0 EP\n";
     a.beRepaired(1);
 
-    std::cout << "\n[TEST] a takes 0 damage\n";
+    std::cout << "\n[TEST] Tom takes 0 damage\n";
     a.takeDamage(0);
 
-    std::cout << "\n[TEST] a repairs 0 HP\n";
+    std::cout << "\n[TEST] Tom repairs 0 HP\n";
     a.beRepaired(0);
 
-    std::cout << "\n[TEST] a takes fatal damage (999)\n";
+    std::cout << "\n[TEST] Tom takes fatal damage (999)\n";
     a.takeDamage(999);
 
-    std::cout << "\n[TEST] a tries to attack after death\n";
+    std::cout << "\n[TEST] Tom tries to attack after death\n";
     a.attack("Ghost");
 
-    std::cout << "\n[TEST] a tries to repair after death\n";
+    std::cout << "\n[TEST] Tom tries to repair after death\n";
     a.beRepaired(10);
 }
 
@@ -48,7 +48,7 @@ void testClapTrapCopy() {
 }
 
 int main() {
-    testClapTrapCopy();
     testClapTrapBasic();
+    testClapTrapCopy();
     return 0;
 }
