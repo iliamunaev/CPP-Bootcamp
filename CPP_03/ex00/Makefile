@@ -3,21 +3,25 @@ NAME := ClapTrap
 CXX := c++
 CXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
+OBJDIR := obj
+
 SRC := main.cpp \
 		ClapTrap.cpp
 
-OBJDIR := obj
-OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
+OBJ := $(OBJDIR)/main.o $(OBJDIR)/ClapTrap.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
-# Compile .cpp to obj/*.o
-$(OBJDIR)/%.o: %.cpp
+$(OBJDIR)/main.o: main.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $(OBJDIR)/main.o
+
+$(OBJDIR)/ClapTrap.o: ClapTrap.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c ClapTrap.cpp -o $(OBJDIR)/ClapTrap.o
 
 clean:
 	rm -rf $(OBJDIR)
@@ -27,4 +31,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: $(NAME)
+	./$(NAME)
+
+.PHONY: all clean fclean re run
