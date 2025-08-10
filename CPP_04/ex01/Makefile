@@ -10,17 +10,37 @@ SRC := main.cpp \
 		Brain.cpp
 
 OBJDIR := obj
-OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
+
+OBJ := $(OBJDIR)/main.o \
+		$(OBJDIR)/Animal.o \
+		$(OBJDIR)/Cat.o \
+		$(OBJDIR)/Dog.o \
+		$(OBJDIR)/Brain.o
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Compile .cpp to obj/*.o
-$(OBJDIR)/%.o: %.cpp
+$(OBJDIR)/main.o: main.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $(OBJDIR)/main.o
+
+$(OBJDIR)/Animal.o: Animal.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c Animal.cpp -o $(OBJDIR)/Animal.o
+
+$(OBJDIR)/Cat.o: Cat.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c Cat.cpp -o $(OBJDIR)/Cat.o
+
+$(OBJDIR)/Dog.o: Dog.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c Dog.cpp -o $(OBJDIR)/Dog.o
+
+$(OBJDIR)/Brain.o: Brain.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c Brain.cpp -o $(OBJDIR)/Brain.o
 
 clean:
 	rm -rf $(OBJDIR)
@@ -30,4 +50,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: $(NAME)
+	./$(NAME)
+
+.PHONY: all clean fclean re run

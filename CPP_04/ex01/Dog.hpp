@@ -1,3 +1,12 @@
+/*
+*  Dog.hpp
+*
+*  By: Ilia Munaev ilyamunaev@gmail.com
+*  LinkedIn: https://www.linkedin.com/in/iliamunaev/
+*
+*  Created: 2025-08-10
+*  Updated: 2025-08-10
+*/
 #ifndef DOG_HPP
 #define DOG_HPP
 
@@ -9,14 +18,14 @@
 class Dog : public Animal {
   public:
     Dog();
-    virtual ~Dog() override;
+    Dog(const std::string& type) = delete;
     Dog(const Dog& other);
     Dog& operator=(const Dog& other);
+    virtual ~Dog() override;
 
     void makeSound(void) const override;
-    std::string getType(void) const;
-    Brain& getBrain(void) const;
-    std::string getIdea(int i) const;
+    void setIdea(std::size_t i, const std::string& idea);
+    std::string getIdea(std::size_t i) const;
 
   private:
     Brain* brain;

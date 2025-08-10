@@ -1,44 +1,45 @@
+/*
+*  Brain.cpp
+*
+*  By: Ilia Munaev ilyamunaev@gmail.com
+*  LinkedIn: https://www.linkedin.com/in/iliamunaev/
+*
+*  Created: 2025-08-10
+*  Updated: 2025-08-10
+*/
 #include "Brain.hpp"
 
 Brain::Brain() {
-  std::cout << "Brain Default constructor is strted" << std::endl;
-}
-
-Brain::~Brain() {
-  std::cout << "Brain Destructor is strted" << std::endl;
+  std::cout << "Brain Default constructor is called" << std::endl;
 }
 
 Brain::Brain(const Brain& other) : ideas( other.ideas) {
-  std::cout << "Brain Copy constructor is started" << std::endl;
+  std::cout << "Brain Copy constructor is called" << std::endl;
 }
 
 Brain& Brain::operator=(const Brain& other) {
-    if (this != &other) {
-        for (int i = 0; i < NUM_IDEAS; ++i) {
-            this->ideas[i] = other.ideas[i];
-        }
+  if (this != &other) {
+    for (std::size_t i = 0; i < MaxIdeas; ++i) {
+      this->ideas[i] = other.ideas[i];
     }
-    return *this;
+  }
+  return *this;
 }
 
-std::string Brain::getIdea(int i) const {
-  if (i >= 0 && i < NUM_IDEAS) {
-    return ideas[i];
-  } else if (i < 0) {
-    std::string msg = "Brain: mmm... you're tryint to reach Subconciouse";
-    return msg;
-  } else {
-    std::string msg = "Brain: I'm not too smart to have so many ideas...";
-    return msg;
-  }
+Brain::~Brain() {
+  std::cout << "Brain Destructor is called" << std::endl;
 }
 
-void Brain::setIdea(int i, const std::string& idea) {
-  if (i >= 0 && i < NUM_IDEAS) {
-    ideas[i] = idea;
-  } else if (i < 0) {
-    std::cout << "Brain: mmm... you're tryint to reach Subconciouse" << std::endl;
-  } else {
-    std::cout << "Brain: I'm not too smart to have so many ideas..." << std::endl;
+const std::string& Brain::getIdea(std::size_t i) const {
+  if (i >= MaxIdeas){
+    throw std::out_of_range("idea index");
   }
+  return ideas[i];
+}
+
+void Brain::setIdea(std::size_t i, const std::string& idea) {
+  if (i >= MaxIdeas) {
+    throw std::out_of_range("idea index");
+  }
+  ideas[i] = idea;
 }
