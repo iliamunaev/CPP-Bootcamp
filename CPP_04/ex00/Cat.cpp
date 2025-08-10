@@ -1,3 +1,12 @@
+/*
+*  Cat.cpp
+*
+*  By: Ilia Munaev ilyamunaev@gmail.com
+*  LinkedIn: https://www.linkedin.com/in/iliamunaev/
+*
+*  Created: 2025-08-10
+*  Updated: 2025-08-10
+*/
 #include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat") {

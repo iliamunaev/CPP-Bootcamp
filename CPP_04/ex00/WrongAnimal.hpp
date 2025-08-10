@@ -1,3 +1,12 @@
+/*
+*  WrongAnimal.hpp
+*
+*  By: Ilia Munaev ilyamunaev@gmail.com
+*  LinkedIn: https://www.linkedin.com/in/iliamunaev/
+*
+*  Created: 2025-08-10
+*  Updated: 2025-08-10
+*/
 #ifndef WRONG_ANIMAL_00_HPP
 #define WRONG_ANIMAL_00_HPP
 
