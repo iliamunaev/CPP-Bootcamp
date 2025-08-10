@@ -14,9 +14,9 @@
 
 #include "ClapTrap.hpp"
 
-#define ST_NUM_HIT_POINTS 100
-#define ST_NUM_ENERGY_POINTS 50
-#define ST_NUM_ATTACK_DAMAGE 20
+#define ST_HIT_POINTS 100
+#define ST_ENERGY_POINTS 50
+#define ST_ATTACK_DAMAGE 20
 
 class ScavTrap : public ClapTrap {
   public:

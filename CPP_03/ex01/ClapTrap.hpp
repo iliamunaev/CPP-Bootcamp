@@ -12,9 +12,9 @@
 
 #include <iostream>
 
-#define CT_NUM_HIT_POINTS 10
-#define CT_NUM_ENERGY_POINTS 10
-#define CT_NUM_ATTACK_DAMAGE 0
+#define CT_HIT_POINTS 10
+#define CT_ENERGY_POINTS 10
+#define CT_ATTACK_DAMAGE 0
 
 class ClapTrap {
   public:

@@ -11,16 +11,16 @@
 
 ClapTrap::ClapTrap()
     : m_name("Default"),
-      m_hitPoints(CT_NUM_HIT_POINTS),
-      m_energyPoints(CT_NUM_ENERGY_POINTS),
-      m_attackDamage(CT_NUM_ATTACK_DAMAGE) {
+      m_hitPoints(CT_HIT_POINTS),
+      m_energyPoints(CT_ENERGY_POINTS),
+      m_attackDamage(CT_ATTACK_DAMAGE) {
   std::cout << "ClapTrap Default constructor called" << std::endl;
 
   getStatus();
 }
 
 ClapTrap::ClapTrap(const std::string &name)
-    : m_name(name), m_hitPoints(CT_NUM_HIT_POINTS), m_energyPoints(CT_NUM_ENERGY_POINTS), m_attackDamage(CT_NUM_ATTACK_DAMAGE) {
+    : m_name(name), m_hitPoints(CT_HIT_POINTS), m_energyPoints(CT_ENERGY_POINTS), m_attackDamage(CT_ATTACK_DAMAGE) {
   std::cout << "ClapTrap Name Constructor for " << m_name << " called" << std::endl;
 
   getStatus();

@@ -14,9 +14,9 @@
 
 #include "ClapTrap.hpp"
 
-#define FT_NUM_HIT_POINTS 100
-#define FT_NUM_ENERGY_POINTS 100
-#define FT_NUM_ATTACK_DAMAGE 30
+#define FT_HIT_POINTS 100
+#define FT_ENERGY_POINTS 100
+#define FT_ATTACK_DAMAGE 30
 
 class FragTrap : public ClapTrap {
   public:

@@ -11,9 +11,9 @@
 
 FragTrap::FragTrap()
     : ClapTrap() {
-  m_hitPoints = FT_NUM_HIT_POINTS;
-  m_energyPoints = FT_NUM_ENERGY_POINTS;
-  m_attackDamage = FT_NUM_ATTACK_DAMAGE;
+  m_hitPoints = FT_HIT_POINTS;
+  m_energyPoints = FT_ENERGY_POINTS;
+  m_attackDamage = FT_ATTACK_DAMAGE;
   std::cout << "FragTrap Default constructor called" << std::endl;
 
   getStatus();
@@ -21,9 +21,9 @@ FragTrap::FragTrap()
 
 FragTrap::FragTrap(const std::string& n) :
   ClapTrap(n) {
-    m_hitPoints = FT_NUM_HIT_POINTS;
-    m_energyPoints = FT_NUM_ENERGY_POINTS;
-    m_attackDamage = FT_NUM_ATTACK_DAMAGE;
+    m_hitPoints = FT_HIT_POINTS;
+    m_energyPoints = FT_ENERGY_POINTS;
+    m_attackDamage = FT_ATTACK_DAMAGE;
     std::cout << "FragTrap Name Constructor for " << n << " called" << std::endl;
 
   getStatus();
