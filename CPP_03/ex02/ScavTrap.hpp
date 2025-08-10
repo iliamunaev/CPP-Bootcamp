@@ -1,24 +1,33 @@
-#ifndef SCAV_TRAP_02_HPP
-#define SCAV_TRAP_02_HPP
+/*
+*  ScavTrap.hpp
+*
+*  By: Ilia Munaev ilyamunaev@gmail.com
+*  LinkedIn: https://www.linkedin.com/in/iliamunaev/
+*
+*  Created: 2025-08-10
+*  Updated: 2025-08-10
+*/
+#ifndef SCAV_TRAP_HPP
+#define SCAV_TRAP_HPP
 
 #include <iostream>
 
 #include "ClapTrap.hpp"
 
-#define NUM_HP_ST 100
-#define NUM_EP_ST 50
-#define NUM_AD_ST 20
+#define ST_NUM_HIT_POINTS 100
+#define ST_NUM_ENERGY_POINTS 50
+#define ST_NUM_ATTACK_DAMAGE 20
 
 class ScavTrap : public ClapTrap {
   public:
     ScavTrap();
-    ScavTrap(const std::string &n);
-    ScavTrap(const ScavTrap &other);
-    ScavTrap &operator=(const ScavTrap &other);
-    ~ScavTrap();
+    ScavTrap(const std::string& name);
+    ScavTrap(const ScavTrap& other);
+    ScavTrap &operator=(const ScavTrap& other);
+    ~ScavTrap() override;
 
-    void attack(const std::string &NAME);
+    void attack(const std::string& target) override;
     void guardGate();
 };
 
-#endif // SCAV_TRAP_02_HPP
+#endif // SCAV_TRAP_HPP

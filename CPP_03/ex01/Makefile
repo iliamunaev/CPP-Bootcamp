@@ -39,4 +39,4 @@ re: fclean all
 run: $(NAME)
 	./$(NAME)
 
-.PHONY: all clean fclean re run55y
+.PHONY: all clean fclean re run
