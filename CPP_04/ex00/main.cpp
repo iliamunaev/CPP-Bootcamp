@@ -6,7 +6,7 @@
 #include <iostream>
 
 void separator(const std::string& title) {
-  std::cout << "\n========== " << title << " ==========\n";
+  std::cout << "\n========== " << title << " ==========" << std::endl;
 }
 
 int main() {
@@ -33,8 +33,8 @@ int main() {
   const WrongAnimal* wAnimal = new WrongAnimal();
   const WrongAnimal* wCat = new WrongCat();
 
-  std::cout << "Type: " << wAnimal->getType() << "\n";
-  std::cout << "Type: " << wCat->getType() << "\n";
+  std::cout << "Type: " << wAnimal->getType() << "" << std::endl;
+  std::cout << "Type: " << wCat->getType() << "" << std::endl;
 
   wAnimal->makeSound();
   wCat->makeSound();
@@ -57,7 +57,7 @@ int main() {
 
   Dog dog;
   Animal sliced = dog;  // Slicing occurs
-  std::cout << "Sliced.getType(): " << sliced.getType() << "\n";
+  std::cout << "Sliced.getType(): " << sliced.getType() << "" << std::endl;
   sliced.makeSound(); // Calls Animal::makeSound(), not Dog’s
 
   separator("Stack Allocation & Destruction");

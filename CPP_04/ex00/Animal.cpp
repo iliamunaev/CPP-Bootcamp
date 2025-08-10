@@ -1,23 +1,23 @@
 #include "Animal.hpp"
 
 Animal::Animal() : type("Default Animal") {
-  std::cout << "Animal Default constructor is started\n";
+  std::cout << "Animal Default constructor is started" << std::endl;
 }
 
 Animal::Animal(const std::string& t) : type(t) {
-  std::cout << "Animal Type constructor is started\n";
+  std::cout << "Animal Type constructor is started" << std::endl;
 }
 
 Animal::~Animal() {
-  std::cout << "Animal Destructor is started\n";
+  std::cout << "Animal Destructor is started" << std::endl;
 }
 
 Animal::Animal(const Animal& other) : type(other.type) {
-  std::cout << "Animal Copy constructor is started\n";
+  std::cout << "Animal Copy constructor is started" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal& other) {
-  std::cout << "Animal Copy assignment operator is started\n";
+  std::cout << "Animal Copy assignment operator is started" << std::endl;
   if (this != &other) {
     this->type = other.type;
   }
@@ -25,7 +25,7 @@ Animal& Animal::operator=(const Animal& other) {
 }
 
 void Animal::makeSound(void) const {
-  std::cout << "Boo! I'm Animal!\n";
+  std::cout << "Boo! I'm Animal!" << std::endl;
 }
 
 std::string Animal::getType(void) const {
