@@ -4,7 +4,7 @@ CXX := c++
 CXXFLAGS := -Wall -Werror -Wextra -Wshadow -std=c++17
 
 SRC := main.cpp \
-		Animal.cpp \
+		AAnimal.cpp \
 		Cat.cpp \
 		Dog.cpp \
 		Brain.cpp
@@ -12,7 +12,7 @@ SRC := main.cpp \
 OBJDIR := obj
 
 OBJ := $(OBJDIR)/main.o \
-		$(OBJDIR)/Animal.o \
+		$(OBJDIR)/AAnimal.o \
 		$(OBJDIR)/Cat.o \
 		$(OBJDIR)/Dog.o \
 		$(OBJDIR)/Brain.o
@@ -26,9 +26,9 @@ $(OBJDIR)/main.o: main.cpp
 	@mkdir -p $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c main.cpp -o $(OBJDIR)/main.o
 
-$(OBJDIR)/Animal.o: Animal.cpp
+$(OBJDIR)/AAnimal.o: AAnimal.cpp
 	@mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c Animal.cpp -o $(OBJDIR)/Animal.o
+	$(CXX) $(CXXFLAGS) -c AAnimal.cpp -o $(OBJDIR)/AAnimal.o
 
 $(OBJDIR)/Cat.o: Cat.cpp
 	@mkdir -p $(OBJDIR)

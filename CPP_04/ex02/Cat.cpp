@@ -11,11 +11,11 @@
 #include "Cat.hpp"
 
 // derived classes must set their type field depending on their name
-Cat::Cat() : Animal("Cat"), brain(new Brain()) {
+Cat::Cat() : AAnimal("Cat"), brain(new Brain()) {
   std::cout << "Cat Default constructor is called" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other), brain(new Brain(*other.brain)) {
+Cat::Cat(const Cat& other) : AAnimal(other), brain(new Brain(*other.brain)) {
   std::cout << "Cat Copy constructor for " << other.type << " is called" << std::endl;
 }
 
@@ -23,7 +23,7 @@ Cat& Cat::operator=(const Cat& other) {
   std::cout << "Cat Copy assignment operator for " << other.type << " is called" << std::endl;
 
   if (this != &other) {
-    Animal::operator=(other);
+    AAnimal::operator=(other);
     delete brain;
     brain = new Brain(*other.brain);
   }

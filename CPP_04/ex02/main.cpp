@@ -7,7 +7,7 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include <iostream>
@@ -78,7 +78,7 @@ int main() {
   testCat();
 
   // test abstract error
-  // Animal a;
+  // AAnimal a;
 
   return 0;
 }
