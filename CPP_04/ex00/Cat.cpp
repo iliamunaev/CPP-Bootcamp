@@ -10,20 +10,17 @@
 #include <iostream>
 #include "Cat.hpp"
 
+// derived classes must set their type field depending on their name
 Cat::Cat() : Animal("Cat") {
-  std::cout << "Cat Default constructor is started" << std::endl;
-}
-
-Cat::~Cat() {
-  std::cout << "Cat Destructor is started" << std::endl;
+  std::cout << "Cat Default constructor is called" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other) {
-  std::cout << "Cat Copy constructor is started" << std::endl;
+  std::cout << "Cat Copy constructor for " << other.type << " is called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other) {
-  std::cout << "Cat Copy assignment operator is started" << std::endl;
+  std::cout << "Cat Copy assignment operator for " << other.type << " is called" << std::endl;
 
   if (this != &other) {
     Animal::operator=(other);
@@ -31,10 +28,10 @@ Cat& Cat::operator=(const Cat& other) {
   return *this;
 }
 
-void Cat::makeSound(void) const {
-  std::cout << "Meow! I'm Cat!" << std::endl;
+Cat::~Cat() {
+  std::cout << "Cat Destructor for " << type << " is called" << std::endl;
 }
 
-std::string Cat::getType(void) const {
-  return Animal::getType();
+void Cat::makeSound(void) const {
+  std::cout << "OMG! I'm Cat..." << std::endl;
 }

@@ -14,7 +14,7 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal {
+class WrongCat:public WrongAnimal {
   public:
     WrongCat();
     ~WrongCat();
@@ -22,7 +22,6 @@ class WrongCat : public WrongAnimal {
     WrongCat& operator=(const WrongCat& other);
 
     void makeSound(void) const;
-    std::string getType(void) const;
 };
 
 #endif // WRONG_CAT_HPP

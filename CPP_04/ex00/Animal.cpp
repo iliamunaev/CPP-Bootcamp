@@ -10,7 +10,7 @@
 #include <iostream>
 #include "Animal.hpp"
 
-Animal::Animal() : type("Default_Animal") {
+Animal::Animal() : type("Animal") {
   std::cout << "Animal Default constructor is called" << std::endl;
 }
 
@@ -39,6 +39,6 @@ void Animal::makeSound(void) const {
   std::cout << "Boo! I'm Animal!" << std::endl;
 }
 
-std::string Animal::getType(void) const {
+const std::string& Animal::getType(void) const {
   return type;
 }

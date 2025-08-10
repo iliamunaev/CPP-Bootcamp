@@ -16,15 +16,15 @@ class WrongAnimal {
   public:
     WrongAnimal();
     ~WrongAnimal();
-    WrongAnimal(const std::string& type);
+    WrongAnimal(const std::string& t);
     WrongAnimal(const WrongAnimal& other);
     WrongAnimal& operator=(const WrongAnimal& other);
 
     void makeSound(void) const;
-    std::string getType(void) const;
+    const std::string& getType(void) const;
 
   protected:
-    std::string m_type;
+    std::string type;
 };
 
 #endif // WRONG_ANIMAL_HPP

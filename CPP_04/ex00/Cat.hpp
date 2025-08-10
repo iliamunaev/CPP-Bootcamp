@@ -14,15 +14,15 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal {
+class Cat:public Animal {
   public:
     Cat();
-    ~Cat() override;
+    Cat(const std::string& t) = delete; // derived classes must set their type field depending on their name
     Cat(const Cat& other);
     Cat& operator=(const Cat& other);
+    ~Cat() override;
 
     void makeSound(void) const override;
-    std::string getType(void) const;
 };
 
 #endif // CAT_HPP
