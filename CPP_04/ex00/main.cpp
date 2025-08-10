@@ -8,7 +8,6 @@
 *  Updated: 2025-08-10
 */
 #include <iostream>
-// #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"

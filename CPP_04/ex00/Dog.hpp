@@ -17,7 +17,7 @@
 class Dog:public Animal {
   public:
     Dog();
-    Dog(const std::string& t) = delete; // derived classes must set their type field depending on their name
+    Dog(const std::string& type) = delete; // derived classes must set their type field depending on their name
     Dog(const Dog& other);
     Dog& operator=(const Dog& other);
     ~Dog() override;
