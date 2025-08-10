@@ -7,8 +7,8 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#ifndef WRONG_ANIMAL_00_HPP
-#define WRONG_ANIMAL_00_HPP
+#ifndef WRONG_ANIMAL_HPP
+#define WRONG_ANIMAL_HPP
 
 #include <string>
 
@@ -27,4 +27,4 @@ class WrongAnimal {
     std::string m_type;
 };
 
-#endif // WRONG_ANIMAL_00_HPP
+#endif // WRONG_ANIMAL_HPP

@@ -7,8 +7,8 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#ifndef DOG_00_HPP
-#define DOG_00_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include <iostream>
 
@@ -25,4 +25,4 @@ class Dog : public Animal {
     std::string getType(void) const;
 };
 
-#endif // DOG_00_HPP
+#endif // DOG_HPP

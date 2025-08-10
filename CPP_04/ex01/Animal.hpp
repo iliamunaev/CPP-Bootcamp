@@ -1,5 +1,5 @@
-#ifndef ANIMAL_01_HPP
-#define ANIMAL_01_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
@@ -18,4 +18,4 @@ class Animal {
     std::string m_type;
 };
 
-#endif // ANIMAL_01_HPP
+#endif // ANIMAL_HPP

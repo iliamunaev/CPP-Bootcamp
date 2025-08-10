@@ -7,8 +7,8 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#ifndef ANIMAL_00_HPP
-#define ANIMAL_00_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
@@ -27,4 +27,4 @@ class Animal {
     std::string type;
 };
 
-#endif // ANIMAL_00_HPP
+#endif // ANIMAL_HPP

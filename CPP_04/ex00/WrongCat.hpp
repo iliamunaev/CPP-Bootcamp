@@ -7,8 +7,8 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#ifndef WRONG_CAT_00_HPP
-#define WRONG_CAT_00_HPP
+#ifndef WRONG_CAT_HPP
+#define WRONG_CAT_HPP
 
 #include <string>
 
@@ -25,4 +25,4 @@ class WrongCat : public WrongAnimal {
     std::string getType(void) const;
 };
 
-#endif // WRONG_CAT_00_HPP
+#endif // WRONG_CAT_HPP

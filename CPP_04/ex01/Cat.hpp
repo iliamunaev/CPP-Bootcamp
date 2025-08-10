@@ -1,5 +1,5 @@
-#ifndef CAT_01_HPP
-#define CAT_01_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include <iostream>
 
@@ -22,4 +22,4 @@ class Cat : public Animal {
     Brain* brain;
 };
 
-#endif // CAT_01_HPP
+#endif // CAT_HPP

@@ -1,5 +1,5 @@
-#ifndef BRAIN_01_HPP
-#define BRAIN_01_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 
@@ -19,4 +19,4 @@ class Brain {
     std::string ideas[NUM_IDEAS];
 };
 
-#endif //BRAIN_01_HPP
+#endif //BRAIN_HPP

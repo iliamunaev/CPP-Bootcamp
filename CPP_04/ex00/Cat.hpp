@@ -7,8 +7,8 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#ifndef CAT_00_HPP
-#define CAT_00_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include <iostream>
 
@@ -25,4 +25,4 @@ class Cat : public Animal {
     std::string getType(void) const;
 };
 
-#endif // CAT_00_HPP
+#endif // CAT_HPP
