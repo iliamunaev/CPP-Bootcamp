@@ -14,65 +14,89 @@
 #include "WrongCat.hpp"
 #include <iostream>
 
-void separator(const std::string& title) {
-  std::cout << "\n========== " << title << " ==========" << std::endl;
+void testAnimal() {
+  {
+    std::cout << "*** TEST Animal ***\n" << std::endl;
+    std::cout << "*** TEST Dafault constructor ***" << std::endl;
+
+    Animal a;
+  }
+  {
+    std::cout << "*** TEST Animal ***\n" << std::endl;
+    std::cout << "*** TEST Type constructor ***" << std::endl;
+
+    Animal a("AnyAnimalType");
+  }
+  {
+    std::cout << "*** TEST Animal ***\n" << std::endl;
+    std::cout << "*** TEST Copy constructor ***" << std::endl;
+
+    Animal a("Animal_1");
+    Animal b(a);
+  }
+  {
+    std::cout << "*** TEST Animal ***\n" << std::endl;
+    std::cout << "*** TEST Copy assignment operator ***" << std::endl;
+
+    Animal a("Animal_1");
+    Animal b("Animal_2");
+    a = b;
+  }
+  {
+    std::cout << "*** TEST Animal ***\n" << std::endl;
+    std::cout << "*** TEST Copy assignment operator ***" << std::endl;
+
+    Animal a("Animal_1");
+    Animal b("Animal_2");
+    a = b;
+  }
+  std::cout << "\n*** END TEST Animal ***\n" << std::endl;
+}
+
+void testDog() {
+  {
+    std::cout << "*** TEST Dog ***\n" << std::endl;
+    std::cout << "*** TEST Dafault constructor ***" << std::endl;
+
+    Dog a;
+  }
+  {
+    std::cout << "*** TEST Dog ***\n" << std::endl;
+    std::cout << "*** TEST Type constructor ***" << std::endl;
+
+    Dog a("Dog");
+  }
+  {
+    std::cout << "*** TEST Dog ***\n" << std::endl;
+    std::cout << "*** TEST Copy constructor ***" << std::endl;
+
+    Animal a("Dog_1");
+    Animal b(a);
+  }
+  {
+    std::cout << "*** TEST Dog ***\n" << std::endl;
+    std::cout << "*** TEST Copy assignment operator ***" << std::endl;
+
+    Animal a("Dog_1");
+    Animal b("Dog_2");
+    a = b;
+  }
+  {
+    std::cout << "*** TEST Dog ***\n" << std::endl;
+    std::cout << "*** TEST Copy assignment operator ***" << std::endl;
+
+    Animal a("Dog_1");
+    Animal b("Dog_2");
+    a = b;
+  }
+  std::cout << "\n*** END TEST Dog ***\n" << std::endl;
 }
 
 int main() {
-  separator("Polymorphic Array Test");
 
-  const int size = 4;
-  const Animal* zoo[size] = {
-      new Dog(),
-      new Cat(),
-      new Dog(),
-      new Cat()
-  };
-
-  for (int i = 0; i < size; ++i) {
-    std::cout << zoo[i]->getType() << " says: ";
-    zoo[i]->makeSound();
-  }
-
-  for (int i = 0; i < size; ++i)
-    delete zoo[i];
-
-  separator("WrongAnimal Test");
-
-  const WrongAnimal* wAnimal = new WrongAnimal();
-  const WrongAnimal* wCat = new WrongCat();
-
-  std::cout << "Type: " << wAnimal->getType() << "" << std::endl;
-  std::cout << "Type: " << wCat->getType() << "" << std::endl;
-
-  wAnimal->makeSound();
-  wCat->makeSound();
-
-  delete wAnimal;
-  delete wCat;
-
-  separator("Copy Constructor & Assignment");
-
-  Dog basic;
-  {
-    Dog copy = basic; // Copy constructor
-  }
-
-  Cat alpha;
-  Cat beta;
-  beta = alpha; // Copy assignment
-
-  separator("Object Slicing");
-
-  Dog dog;
-  Animal sliced = dog;  // Slicing occurs
-  std::cout << "Sliced.getType(): " << sliced.getType() << "" << std::endl;
-  sliced.makeSound(); // Calls Animal::makeSound(), not Dog’s
-
-  separator("Stack Allocation & Destruction");
-
-  Dog d1;
-  Cat c1;
+  testAnimal();
+  // testDog();
+  // testCat();
 
   return 0;
 }

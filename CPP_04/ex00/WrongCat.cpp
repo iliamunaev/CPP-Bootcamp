@@ -7,8 +7,8 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#include "WrongCat.hpp"
 #include <iostream>
+#include "WrongCat.hpp"
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat") {
   std::cout << "WrongCat Default constructor is started" << std::endl;

@@ -7,8 +7,8 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
-#include "WrongAnimal.hpp"
 #include <iostream>
+#include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() : m_type("WrongAnimal") {
   std::cout << "WrongAnimal Default constructor is started" << std::endl;

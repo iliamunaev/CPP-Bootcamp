@@ -7,6 +7,7 @@
 *  Created: 2025-08-10
 *  Updated: 2025-08-10
 */
+#include <iostream>
 #include "Dog.hpp"
 
 Dog::Dog() : Animal("Dog") {
