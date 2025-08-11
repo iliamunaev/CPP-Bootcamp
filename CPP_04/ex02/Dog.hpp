@@ -15,10 +15,9 @@
 #include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog:public AAnimal {
+class Dog : public AAnimal {
   public:
     Dog();
-    Dog(const std::string& type) = delete;
     Dog(const Dog& other);
     Dog& operator=(const Dog& other);
     virtual ~Dog() override;

@@ -17,7 +17,6 @@ class Brain {
     static const std::size_t MaxIdeas = 100;
 
     Brain();
-    Brain(const std::string& b) = delete;
     Brain(const Brain& other);
     Brain& operator=(const Brain& other);
     ~Brain();

@@ -13,8 +13,10 @@ Brain::Brain() {
   std::cout << "Brain Default constructor is called" << std::endl;
 }
 
-Brain::Brain(const Brain& other) : ideas( other.ideas) {
-  std::cout << "Brain Copy constructor is called" << std::endl;
+Brain::Brain(const Brain& other) {
+    for (std::size_t i = 0; i < MaxIdeas; ++i)
+        ideas[i] = other.ideas[i];
+    std::cout << "Brain Copy constructor is called" << std::endl;
 }
 
 Brain& Brain::operator=(const Brain& other) {

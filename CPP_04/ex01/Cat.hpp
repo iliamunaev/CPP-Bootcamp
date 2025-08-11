@@ -18,7 +18,6 @@
 class Cat : public Animal {
   public:
     Cat();
-    Cat(const std::string& type) = delete;
     Cat(const Cat& other);
     Cat& operator=(const Cat& other);
     virtual ~Cat() override;
